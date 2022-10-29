@@ -1,38 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css';
+import User from './components/User';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Click the button to load data!'
-    }
-  }
+export default function Application() {
+  const [state, setState] = useState({
+    data: []
+  });
 
-  fetchData = () => {
-    axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
+
+  function fetchUsers () {
+    axios.get('/api/users') // You can simply make your requests to "/api/whatever you want"
     .then((response) => {
       // handle success
       console.log(response.data) // The entire response from the Rails API
 
-      console.log(response.data.message) // Just the message
-      this.setState({
-        message: response.data.message
+      //console.log(response.data.message) // Just the message
+      setState({
+        data: response.data
       });
     }) 
   }
 
-  render() {
+  const users = state.data.map(user => {
     return (
-      <div className="App">
-        <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
-          Fetch Data
-        </button>        
-      </div>
-    );
-  }
-}
+      <User
+        key={user.id}
+        first_name={user.first_name}
+        last_name={user.last_name}
+        email={user.email}
+      />
+    )
+  })
+  
+  return (
+    <div className="App">
+      <h1>Click the button!</h1>
+      <button onClick={fetchUsers} >
+        Fetch Data
+      </button>
+      {users}        
+    </div>
+  );
 
-export default App;
+}
