@@ -44,13 +44,15 @@ ActiveRecord::Schema.define(version: 2022_10_29_011035) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "ride_id"
-    t.integer "user_id"
+    t.bigint "ride_id"
+    t.bigint "user_id"
     t.datetime "date_booked"
     t.boolean "is_new", default: true
     t.boolean "is_completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_trips_on_ride_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,10 +60,13 @@ ActiveRecord::Schema.define(version: 2022_10_29_011035) do
     t.string "last_name"
     t.string "email"
     t.string "password"
+    t.boolean "is_driver", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "drivers", "users"
   add_foreign_key "rides", "drivers"
+  add_foreign_key "trips", "rides"
+  add_foreign_key "trips", "users"
 end
