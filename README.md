@@ -84,3 +84,7 @@ To make your app work properly with React Router (if you end up using it) on Her
 ## Contact
 
 Please contact me at `nima.boscarino@gmail.com` if you have any questions or requests, or post an issue to this repo.
+
+## Command to run rails server on Vagrant Machine
+
+bin/rails s -b 0.0.0.0
