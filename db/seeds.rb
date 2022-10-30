@@ -57,7 +57,7 @@ puts "creating rides..."
 # @driver = Driver.find(4)
 # puts @driver.user.first_name
 
-cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "Vancouver", "Kelowna", "North Dumfries", "Ottawa"]
+cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "Vancouver", "Kelowna", "North Dumfries", "Ottawa", "Newmarket", "Stouffville", "New York City"]
 
 50.times do
   random_cities = cities.shuffle
@@ -79,5 +79,15 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
   ride.save
 end
 
-@driver = Driver.find(4)
-puts @driver.rides.all
+puts "creating trips..."
+
+5.times do
+  trip = Trip.new(
+    ride: Ride.all.sample, 
+    user: User.find(4),
+    is_new: false, 
+    is_completed: true
+  )
+  trip.date_booked = Faker::Time.between(from: trip.ride.departure_date_time - 5.days, to: trip.ride.departure_date_time)
+  trip.save
+end
