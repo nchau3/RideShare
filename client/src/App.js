@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import User from './components/User';
+import Ride from './components/Ride';
+
 
 export default function Application() {
   const [state, setState] = useState({
-    data: []
+    users: [],
+    rides: []
   });
 
 
-  function fetchUsers () {
-    axios.get('/api/users') // You can simply make your requests to "/api/whatever you want"
-    .then((response) => {
-      // handle success
-      console.log(response.data) // The entire response from the Rails API
-
-      //console.log(response.data.message) // Just the message
-      setState({
-        data: response.data
-      });
-    }) 
+  function fetchData () {
+    Promise.all([
+      axios.get("/api/users"),
+      axios.get("/api/rides")
+    ]).then((all) => {
+      setState(prev => ({...prev, users: all[0].data, rides: all[1].data }));
+    });
   }
 
-  const users = state.data.map(user => {
+  const users = state.users.map(user => {
     return (
       <User
         key={user.id}
@@ -31,14 +30,30 @@ export default function Application() {
       />
     )
   })
+
+  const rides = state.rides.map(ride => {
+    return (
+      <Ride
+        key={ride.id}
+        car_model={ride.driver.car_model}
+        car_make={ride.driver.car_make}
+        car_color={ride.driver.car_color}
+        pickup={ride.pickup}
+        dropoff={ride.dropoff}
+        departure={ride.departure_date_time}
+        cost={ride.cost_per_seat}
+      />
+    )
+  })
   
   return (
     <div className="App">
       <h1>Click the button!</h1>
-      <button onClick={fetchUsers} >
+      <button onClick={fetchData} >
         Fetch Data
       </button>
-      {users}        
+      {users}
+      {rides}
     </div>
   );
 
