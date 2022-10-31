@@ -18,7 +18,8 @@ User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas
 20.times do
   user = User.new(
     first_name: Faker::Name.unique.male_first_name,
-    last_name: Faker::Name.unique.last_name
+    last_name: Faker::Name.unique.last_name,
+    password: "test"
     )
   
   user.email = Faker::Internet.free_email(name: user.first_name)
@@ -28,7 +29,8 @@ end
 20.times do
   user = User.new(
     first_name: Faker::Name.unique.female_first_name,
-    last_name: Faker::Name.unique.last_name
+    last_name: Faker::Name.unique.last_name,
+    password: "test"
     )
   
   user.email = Faker::Internet.free_email(name: user.first_name)
