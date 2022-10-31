@@ -2,7 +2,6 @@ class Api::RidesController < ApplicationController
   before_action :check_pickup, only: [:search]
 
   def check_pickup
-  
     if params[:pickup].blank? #check to see if pickup paramater exists
       render json:{}, status: 400
     return 
@@ -41,8 +40,7 @@ class Api::RidesController < ApplicationController
   end
 
   def search_params
-    params.permit(:pickup, :dropoff)
-
+    params.permit(:pickup, :dropoff, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes)
   end
 
   def search
