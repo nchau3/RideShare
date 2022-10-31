@@ -62,7 +62,6 @@ class Api::RidesController < ApplicationController
         licence_plate: driver.licence_plate
       }
     }
-    
     render json: @rides
   end
 
