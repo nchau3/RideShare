@@ -37,6 +37,7 @@ export default function Application() {
       <Ride
         key={ride.id}
         first_name={ride.first_name}
+        last_name={ride.last_name}
         car_model={ride.car_model}
         car_make={ride.car_make}
         car_color={ride.car_color}
@@ -49,11 +50,10 @@ export default function Application() {
   });
 
   return (
-    <div className="App">
+    <main>
       <h1>Click the button!</h1>
-      <button onClick={fetchData}>Fetch Data</button>
-      {users}
+      <button onClick={fetchData}>Display Rides</button>
       {rides}
-    </div>
+    </main>
   );
 }

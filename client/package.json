@@ -1,5 +1,5 @@
 {
-  "name": "react-front-end",
+  "name": "rideshare-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +15,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -23,5 +33,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
 }
