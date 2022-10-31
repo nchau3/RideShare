@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+
+import './app.scss'
+
 import NavBar from "./components/NavBar";
 import Ride from "./components/Ride";
 
@@ -39,9 +42,14 @@ export default function Application() {
   return (
     <main>
       <NavBar/>
-      <h1>Click the button!</h1>
-      <button onClick={fetchData}>Display Rides</button>
-      {rides}
+      <section class="current-page">
+        <header>
+          <button onClick={fetchData}>Display Rides!</button>
+        </header>
+        <div class="rides-container">
+          {rides}
+        </div>
+      </section>
     </main>
   );
 }
