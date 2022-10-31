@@ -1,4 +1,15 @@
 class Api::RidesController < ApplicationController
+  before_action :check_pickup, only: [:search]
+
+  def check_pickup
+    if params[:pickup].blank? #check to see if pickup paramater exists
+      render json:{}, status: 400
+    return 
+    end
+  end
+
+
+
   def index
     @rides = Ride.all.map {|ride|
       driver = Driver.find(ride.driver.id)
@@ -28,9 +39,13 @@ class Api::RidesController < ApplicationController
     render json: @rides
   end
 
-  def search
+  def search_params
+    params.permit(:pickup, :dropoff, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes)
+  end
 
-    @rides = Ride.where(pickup: params[:pickup], dropoff: params[:dropoff]).map {|ride|
+  def search
+    puts search_params
+    @rides = Ride.where(search_params).map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
     {
