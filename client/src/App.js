@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import User from './components/User';
-import Ride from './components/Ride';
-
+import React, { useState } from "react";
+import axios from "axios";
+import User from "./components/User";
+import Ride from "./components/Ride";
 
 export default function Application() {
   const [state, setState] = useState({
     users: [],
-    rides: []
+    rides: [],
   });
 
-
-  function fetchData () {
-    Promise.all([
-      axios.get("/api/users"),
-      axios.get("/api/rides")
-    ]).then((all) => {
-      setState(prev => ({...prev, users: all[0].data, rides: all[1].data }));
-    });
+  function fetchData() {
+    Promise.all([axios.get("/api/users"), axios.get("/api/rides")]).then(
+      (all) => {
+        setState((prev) => ({
+          ...prev,
+          users: all[0].data,
+          rides: all[1].data,
+        }));
+      }
+    );
   }
 
-  const users = state.users.map(user => {
+  const users = state.users.map((user) => {
     return (
       <User
         key={user.id}
@@ -28,33 +29,31 @@ export default function Application() {
         last_name={user.last_name}
         email={user.email}
       />
-    )
-  })
+    );
+  });
 
-  const rides = state.rides.map(ride => {
+  const rides = state.rides.map((ride) => {
     return (
       <Ride
         key={ride.id}
-        car_model={ride.driver.car_model}
-        car_make={ride.driver.car_make}
-        car_color={ride.driver.car_color}
+        first_name={ride.first_name}
+        car_model={ride.car_model}
+        car_make={ride.car_make}
+        car_color={ride.car_color}
         pickup={ride.pickup}
         dropoff={ride.dropoff}
         departure={ride.departure_date_time}
         cost={ride.cost_per_seat}
       />
-    )
-  })
-  
+    );
+  });
+
   return (
     <div className="App">
       <h1>Click the button!</h1>
-      <button onClick={fetchData} >
-        Fetch Data
-      </button>
+      <button onClick={fetchData}>Fetch Data</button>
       {users}
       {rides}
     </div>
   );
-
 }
