@@ -49,11 +49,11 @@ export default function Application() {
   });
 
   return (
-    <div className="App">
+    <main>
       <h1>Click the button!</h1>
       <button onClick={fetchData}>Fetch Data</button>
       {users}
       {rides}
-    </div>
+    </main>
   );
 }

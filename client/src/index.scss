@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+}

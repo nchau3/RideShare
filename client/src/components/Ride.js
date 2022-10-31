@@ -4,6 +4,7 @@ export default function Ride(props) {
   return (
     <div>
       <p>{props.first_name}</p>
+      <p>{props.last_name}</p>
       <p>{props.car_model}</p>
       <p>{props.car_make}</p>
       <p>{props.car_color}</p>
