@@ -1,36 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
-import User from "./components/User";
+
+import './app.scss'
+
+import NavBar from "./components/NavBar";
 import Ride from "./components/Ride";
 
 export default function Application() {
   const [state, setState] = useState({
-    users: [],
-    rides: [],
+    rides: []
   });
 
   function fetchData() {
-    Promise.all([axios.get("/api/users"), axios.get("/api/rides")]).then(
+    Promise.all([axios.get("/api/rides")]).then(
       (all) => {
         setState((prev) => ({
           ...prev,
-          users: all[0].data,
-          rides: all[1].data,
+          rides: all[0].data,
         }));
       }
     );
   }
-
-  const users = state.users.map((user) => {
-    return (
-      <User
-        key={user.id}
-        first_name={user.first_name}
-        last_name={user.last_name}
-        email={user.email}
-      />
-    );
-  });
 
   const rides = state.rides.map((ride) => {
     return (
@@ -51,9 +41,15 @@ export default function Application() {
 
   return (
     <main>
-      <h1>Click the button!</h1>
-      <button onClick={fetchData}>Display Rides</button>
-      {rides}
+      <NavBar/>
+      <section class="current-page">
+        <header>
+          <button onClick={fetchData}>Display Rides!</button>
+        </header>
+        <div class="rides-container">
+          {rides}
+        </div>
+      </section>
     </main>
   );
 }

@@ -23,7 +23,7 @@ export default function Ride(props) {
         </div>
         <div>
           <div>Pickup: {props.pickup}</div>
-          <div>dropoff: {props.dropoff}</div>
+          <div>Dropoff: {props.dropoff}</div>
         </div>
         <div class="car-info">
           <div>{props.car_make} {props.car_model}</div>
