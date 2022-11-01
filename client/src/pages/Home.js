@@ -1,8 +1,8 @@
 import React from "react";
 //import './styles/navbar.scss';
 
-export default function Trips() {
+export default function Home() {
   return (
-    <h1>Rides!</h1>
+    <h1>Homepage!</h1>
   );
 }

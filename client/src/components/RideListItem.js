@@ -1,18 +1,18 @@
 import React from "react";
-import './styles/ride.scss';
+import './styles/ride-list-item.scss';
 
-export default function Ride(props) {
+export default function RideListItem(props) {
   return (
-    <article class="ride-container">
+    <article className="ride-container">
       <header>
-        <div class="avatar"></div>
+        <div className="avatar"></div>
         <div>
           <h3>{props.pickup} to {props.dropoff}</h3>
           <p>Leaving {props.departure}</p>
         </div>
         <div>
           <div>Seats Remaining</div>
-          <div class="price">${props.cost}</div>
+          <div className="price">${props.cost}</div>
           <div>per seat</div>
         </div>
       </header>
@@ -25,7 +25,7 @@ export default function Ride(props) {
           <div>Pickup: {props.pickup}</div>
           <div>Dropoff: {props.dropoff}</div>
         </div>
-        <div class="car-info">
+        <div className="car-info">
           <div>{props.car_make} {props.car_model}</div>
           <div>{props.car_color}</div>
         </div>
