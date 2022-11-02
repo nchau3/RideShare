@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_10_29_011035) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.string "avatar"
     t.boolean "is_driver", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

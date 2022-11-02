@@ -20,6 +20,7 @@ User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas
     first_name: Faker::Name.unique.male_first_name,
     last_name: Faker::Name.unique.last_name,
     password: "test"
+    avatar: "https://xsgames.co/randomusers/avatar.php?g=male"
     )
   
   user.email = Faker::Internet.free_email(name: user.first_name)
@@ -31,6 +32,7 @@ end
     first_name: Faker::Name.unique.female_first_name,
     last_name: Faker::Name.unique.last_name,
     password: "test"
+    avatar: "https://xsgames.co/randomusers/avatar.php?g=female"
     )
   
   user.email = Faker::Internet.free_email(name: user.first_name)
