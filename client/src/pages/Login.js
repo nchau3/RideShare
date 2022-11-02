@@ -8,7 +8,12 @@ export default function Login(props) {
   return (
     <div class="page-container">
       <h1>Login!</h1>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.onLogin(email, password);
+        }}
+      >
         <label for="email">Email:</label>
         <input
           type="email"
@@ -27,9 +32,7 @@ export default function Login(props) {
           onChange={(event) => setPassword(event.target.value)}
         />
 
-        <button type="submit" onClick={() => props.onLogin(email, password)}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

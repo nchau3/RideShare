@@ -47,9 +47,9 @@ export default function App() {
       url: "/api/register",
       data: {
         user: {
-          email: email,
           first_name: firstName,
           last_name: lastName,
+          email: email,
           password: password,
         },
       },

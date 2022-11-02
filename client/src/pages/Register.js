@@ -6,11 +6,17 @@ export default function Register(props) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log(firstName, lastName);
 
   return (
     <div class="page-container">
       <h1>Register!</h1>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.onRegister(email, password, firstName, lastName);
+        }}
+      >
         <label for="first_name">First name:</label>
         <input
           type="text"
@@ -50,9 +56,7 @@ export default function Register(props) {
         <label for="password_confirm">Confirm password:</label>
         <input type="password" id="password_confirm" name="password_confirm" />
 
-        <button type="submit" onClick={() => props.onRegister(email, password)}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
