@@ -1,59 +1,38 @@
-import React, { useState } from "react";
-import axios from "axios";
-import User from "./components/User";
-import Ride from "./components/Ride";
+import React from "react";
+import { Route } from "react-router-dom";
 
-export default function Application() {
-  const [state, setState] = useState({
-    users: [],
-    rides: [],
-  });
+//Components
+import NavBar from "./components/NavBar";
 
-  function fetchData() {
-    Promise.all([axios.get("/api/users"), axios.get("/api/rides")]).then(
-      (all) => {
-        setState((prev) => ({
-          ...prev,
-          users: all[0].data,
-          rides: all[1].data,
-        }));
-      }
-    );
-  }
+//Pages
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Rides from "./pages/Rides";
+import Trips from "./pages/Trips";
 
-  const users = state.users.map((user) => {
-    return (
-      <User
-        key={user.id}
-        first_name={user.first_name}
-        last_name={user.last_name}
-        email={user.email}
-      />
-    );
-  });
+//Styles
+import './app.scss'
 
-  const rides = state.rides.map((ride) => {
-    return (
-      <Ride
-        key={ride.id}
-        first_name={ride.first_name}
-        car_model={ride.car_model}
-        car_make={ride.car_make}
-        car_color={ride.car_color}
-        pickup={ride.pickup}
-        dropoff={ride.dropoff}
-        departure={ride.departure_date_time}
-        cost={ride.cost_per_seat}
-      />
-    );
-  });
-
+export default function App() {
   return (
-    <div className="App">
-      <h1>Click the button!</h1>
-      <button onClick={fetchData}>Fetch Data</button>
-      {users}
-      {rides}
-    </div>
+    <main>
+      <NavBar/>
+        <Route exact path="/" name="Home">
+          <Home />
+        </Route>
+        <Route exact path="/login" name="Login">
+          <Login />
+        </Route>
+        <Route exact path="/register" name="Register">
+          <Register />
+        </Route>
+        <Route exact path="/rides" name="Rides">
+          <Rides />
+        </Route>
+        <Route exact path="/trips" name="Trips">
+          <Trips />
+        </Route>
+    </main>
   );
 }

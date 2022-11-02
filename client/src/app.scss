@@ -1,0 +1,15 @@
+main {
+  display: flex;
+  height: 100%;
+
+  section {
+    width: 100%;
+    padding: 2em;
+  }
+
+  .rides-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
