@@ -15,35 +15,41 @@ User.create(first_name: "Shaun", last_name: "Jiji", email: "shaun@shaun.com", pa
 User.create(first_name: "Coreen", last_name: "Huang", email: "coreen@coreen.com", password: "coreen")
 User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas.com", password: "nicholas")
 
+avatar_counter = 0
+
 20.times do
   user = User.new(
     first_name: Faker::Name.unique.male_first_name,
     last_name: Faker::Name.unique.last_name,
-    password: "test"
-    avatar: "https://xsgames.co/randomusers/avatar.php?g=male"
+    password: "test",
+    avatar: "https://xsgames.co/randomusers/assets/avatars/male/#{avatar_counter}.jpg"
     )
-  
+
   user.email = Faker::Internet.free_email(name: user.first_name)
   user.save
+  avatar_counter += 1
 end
+
+avatar_counter = 0
 
 20.times do
   user = User.new(
     first_name: Faker::Name.unique.female_first_name,
     last_name: Faker::Name.unique.last_name,
-    password: "test"
-    avatar: "https://xsgames.co/randomusers/avatar.php?g=female"
+    password: "test",
+    avatar: "https://xsgames.co/randomusers/assets/avatars/female/#{avatar_counter}.jpg"
     )
   
   user.email = Faker::Internet.free_email(name: user.first_name)
   user.save
+  avatar_counter += 1
 end
 
 puts "creating drivers..."
 
-sample_user_id = 4
+sample_user_id = 10
 
-10.times do
+30.times do
   driver = Driver.new(
     user: User.find(sample_user_id),
     car_make: Faker::Vehicle.make,

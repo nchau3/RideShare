@@ -13,6 +13,7 @@ export default function RideList(props) {
         key={ride.id}
         first_name={ride.first_name}
         last_name={ride.last_name}
+        avatar={ride.avatar}
         car_model={ride.car_model}
         car_make={ride.car_make}
         car_color={ride.car_color}
