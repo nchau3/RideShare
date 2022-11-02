@@ -1,5 +1,5 @@
 import React from "react";
-import './styles/ride-list-item.scss';
+import '../styles/component-styles/ride-list-item.scss';
 
 export default function RideListItem(props) {
   return (
