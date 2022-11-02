@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :password
       t.boolean :is_driver, :default => false, :null => false
       t.timestamps
+      t.string :token
     end
   end
 end

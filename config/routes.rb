@@ -11,6 +11,17 @@ Rails.application.routes.draw do
 
     get '/rides/search', to: 'rides#search'
     get '/rides/:id', to: 'rides#show'
-  end  
+
+    post '/register', to: 'users#create'
+    post '/login', to: 'users#is_user'
+
+    post '/trips/:id', to: 'trips#create'
+  end
+
+  #get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do
+  #  !request.xhr? && request.format.html?
+  #end
+
+  
 
 end
