@@ -17,7 +17,7 @@ export default function Rides() {
   }
 
   return (
-    <section className="page-container">
+    <div className="page-container">
       <h1>Rides!</h1>
       <header>
         <button onClick={fetchRides}>Display Rides!</button>
@@ -25,6 +25,6 @@ export default function Rides() {
       <div className="listings-container">
         <RideList rides={rides}/>
       </div>
-    </section>
+    </div>
   );
 }

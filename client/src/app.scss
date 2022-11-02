@@ -2,14 +2,15 @@ main {
   display: flex;
   height: 100%;
 
-  .listings-container {
-    width: 100%;
+}
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
+.listings-container {
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 }
 
