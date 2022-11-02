@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :email
       t.string :password_digest
+      t.string :avatar
       t.boolean :is_driver, :default => false, :null => false
       t.timestamps
       t.string :token
