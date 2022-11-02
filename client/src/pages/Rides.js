@@ -17,12 +17,14 @@ export default function Rides() {
   }
 
   return (
-    <>
+    <section className="page-container">
       <h1>Rides!</h1>
       <header>
         <button onClick={fetchRides}>Display Rides!</button>
       </header>
-      <RideList rides={rides}/>
-    </>
+      <div className="listings-container">
+        <RideList rides={rides}/>
+      </div>
+    </section>
   );
 }

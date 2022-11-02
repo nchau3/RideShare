@@ -2,14 +2,22 @@ main {
   display: flex;
   height: 100%;
 
-  section {
+  .listings-container {
     width: 100%;
-    padding: 2em;
-  }
 
-  .rides-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+}
+
+.page-container {
+  width: 100%;
+  padding: 2em;
+
+  form {
+    width: 200px;
   }
 }
