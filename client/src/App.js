@@ -41,6 +41,30 @@ export default function App() {
     });
   }
 
+  function onRegister(email, password, firstName, lastName) {
+    return axios({
+      method: "post",
+      url: "/api/register",
+      data: {
+        user: {
+          email: email,
+          first_name: firstName,
+          last_name: lastName,
+          password: password,
+        },
+      },
+    }).then((response) => {
+      const token = response.data.token;
+      const id = response.data.user_id;
+      if (response.data.status !== 401) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("user_id", id);
+      }
+      // console.log(window.localstorage.getItem("token"));
+      return token;
+    });
+  }
+
   function loginCheck(email, password) {
     onLogin(email, password).then((token) => {
       setUser(token);
@@ -57,7 +81,7 @@ export default function App() {
         <Login onLogin={loginCheck} />
       </Route>
       <Route exact path="/register" name="Register">
-        <Register />
+        <Register onRegister={registerCheck} />
       </Route>
       <Route exact path="/rides" name="Rides">
         <Rides />
