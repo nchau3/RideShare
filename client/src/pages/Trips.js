@@ -3,6 +3,6 @@ import React from "react";
 
 export default function Trips() {
   return (
-    <h1>Rides!</h1>
+    <h1>Trips!</h1>
   );
 }
