@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles/register.scss";
 
-export default function Register() {
+export default function Register(props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,8 +50,8 @@ export default function Register() {
         <label for="password_confirm">Confirm password:</label>
         <input type="password" id="password_confirm" name="password_confirm" />
 
-        <button type="submit">
-          Submit onClick={() => props.onRegister(email, password)}
+        <button type="submit" onClick={() => props.onRegister(email, password)}>
+          Submit
         </button>
       </form>
     </div>
