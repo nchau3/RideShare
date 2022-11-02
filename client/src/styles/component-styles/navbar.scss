@@ -1,7 +1,11 @@
+@use '../variables.scss';
+
 nav {
   padding: 1em;
   height: 100%;
   width: fit-content;
+  background-color: variables.$primary-color;
+  color: white;
 
   .logo {
     width: fit-content;
@@ -14,12 +18,22 @@ nav {
   ul {
     list-style-type: none;
 
+    
     li {
       padding: .2em .5em;
       margin-top: .5em;
       font-size: 1.5em;
       list-style-type: none;
       text-decoration: none;
+      
+      .nav-item {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .selected {
+      font-size: 1.5em;
     }
 
   }

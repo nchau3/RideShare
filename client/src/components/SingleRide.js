@@ -1,7 +1,7 @@
 import React from "react";
-import '../styles/component-styles/ride-list-item.scss';
+import '../styles/component-styles/single-ride.scss';
 
-export default function RideListItem(props) {
+export default function SingleRide(props) {
   return (
     <article className="ride-container">
       <header>
