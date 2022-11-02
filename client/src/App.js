@@ -60,13 +60,18 @@ export default function App() {
         localStorage.setItem("token", token);
         localStorage.setItem("user_id", id);
       }
-      // console.log(window.localstorage.getItem("token"));
       return token;
     });
   }
 
   function loginCheck(email, password) {
     onLogin(email, password).then((token) => {
+      setUser(token);
+    });
+  }
+
+  function registerCheck(email, password, firstName, lastName) {
+    onRegister(email, password, firstName, lastName).then((token) => {
       setUser(token);
     });
   }
