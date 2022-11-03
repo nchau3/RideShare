@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     post '/login', to: 'users#is_user'
 
     post '/trips/:id', to: 'trips#create'
+
+    get 'users/:id', to: 'users#show'
+    
   end
 
  
