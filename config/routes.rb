@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post '/register', to: 'users#create'
     post '/login', to: 'users#is_user'
 
-    post '/trips/:id', to: 'trips#create'
+    post '/trips/:ride_id/:user_id', to: 'trips#create'
   end
 
  
