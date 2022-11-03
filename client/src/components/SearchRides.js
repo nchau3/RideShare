@@ -2,29 +2,37 @@ import React, { useState } from "react";
 import '../styles/component-styles/search-rides.scss';
 
 export default function SearchRides(props) {
-  const [pickup, setPickup] = useState("");
-  const [dropoff, setDropoff] = useState("");
+  const [pickup, setPickup] = useState(null);
+  const [dropoff, setDropoff] = useState(null);
   const [conditions, setConditions] = useState({
-    allow_pets: true,
-    allow_oversize: true,
-    allow_skis: true,
-    allow_bikes: true
+    allow_pets: false,
+    allow_oversize: false,
+    allow_skis: false,
+    allow_bikes: false
   }
   );
-  //allow oversize, skis, bikes
 
   function toggle(value) {
     return !value;
   }
 
+  const searchParams = {
+    pickup: pickup,
+    dropoff: dropoff,
+    allow_pets: conditions.allow_pets,
+    allow_oversize: conditions.allow_oversize,
+    allow_skis: conditions.allow_skis,
+    allow_bikes: conditions.allow_bikes
+  }
+
   return (
     <article className="page-card">
-      <h1>Where are you headed?</h1>
-      <h3>Find a ride that fits for you.</h3>
+        <h1>Where are you headed?</h1>
+        <h3>Find a ride that fits for you.</h3>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          props.searchRides();
+          props.onSubmit(searchParams);
         }}
       >
         <label for="pickup">Pickup:</label>
@@ -53,7 +61,7 @@ export default function SearchRides(props) {
             name="allow_pets"
             value="allow_pets"
             checked={conditions.allow_pets}
-            onChange={(event) => {
+            onChange={() => {
               setConditions(prev => ({...prev, allow_pets: toggle(conditions.allow_pets)}))}
             }
           />
@@ -65,8 +73,9 @@ export default function SearchRides(props) {
             type="checkbox"
             id="allow_oversize"
             name="allow_oversize"
-            value={conditions.allow_oversize}
-            onChange={(event) => {
+            value="allow_oversize"
+            checked={conditions.allow_oversize}
+            onChange={() => {
               setConditions(prev => ({...prev, allow_oversize: toggle(conditions.allow_oversize)}))}
             }
           />
@@ -78,8 +87,9 @@ export default function SearchRides(props) {
             type="checkbox"
             id="allow_skis"
             name="allow_skis"
-            value={conditions.allow_skis}
-            onChange={(event) => {
+            value="allow_skis"
+            checked={conditions.allow_skis}
+            onChange={() => {
               setConditions(prev => ({...prev, allow_skis: toggle(conditions.allow_skis)}))}
             }
           />
@@ -91,8 +101,9 @@ export default function SearchRides(props) {
             type="checkbox"
             id="allow_bikes"
             name="allow_bikes"
-            value={conditions.allow_bikes}
-            onChange={(event) => {
+            value="allow_bikes"
+            checked={conditions.allow_bikes}
+            onChange={() => {
               setConditions(prev => ({...prev, allow_bikes: toggle(conditions.allow_bikes)}))}
             }
           />
