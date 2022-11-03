@@ -6,6 +6,8 @@ class CreateDrivers < ActiveRecord::Migration[6.1]
       t.string :car_model
       t.string :car_color
       t.string :licence_plate
+      t.decimal :rating
+      t.integer :trip_count
       t.timestamps
     end
   end
