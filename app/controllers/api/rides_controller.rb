@@ -32,7 +32,9 @@ class Api::RidesController < ApplicationController
       car_make: driver.car_make,
       car_model: driver.car_model,
       car_color: driver.car_color,
-      licence_plate: driver.licence_plate
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count
     }
   }
     render json: @rides
@@ -62,7 +64,9 @@ class Api::RidesController < ApplicationController
         car_make: driver.car_make,
         car_model: driver.car_model,
         car_color: driver.car_color,
-        licence_plate: driver.licence_plate
+        licence_plate: driver.licence_plate, 
+        rating: driver.rating,
+        trip_count: driver.trip_count
       }
     }
     render json: @rides
@@ -95,7 +99,9 @@ class Api::RidesController < ApplicationController
       car_make: driver.car_make,
       car_model: driver.car_model,
       car_color: driver.car_color,
-      licence_plate: driver.licence_plate
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count
     }
   }
     render json: @rides

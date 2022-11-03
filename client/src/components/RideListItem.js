@@ -19,7 +19,7 @@ export default function RideListItem(props) {
       <footer>
         <div>
           <div>{props.first_name} {props.last_name}</div>
-          <div>5 stars, 50 rides</div>
+          <div>{props.rating} stars, {props.trip_count} rides</div>
         </div>
         <div>
           <div>Pickup: {props.pickup}</div>
