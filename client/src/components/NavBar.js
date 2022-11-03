@@ -19,7 +19,7 @@ export default function NavBar() {
           <NavLink to="/rides" className="nav-item" activeClassName="selected">SEARCH RIDES</NavLink>
         </li>
         <li>
-          <NavLink to="/trips" className="nav-item" activeClassName="selected">COREEN'S TRIPS</NavLink>
+          <NavLink to="/trips" className="nav-item" activeClassName="selected">MY TRIPS</NavLink>
         </li>
       </ul>
     </nav>
