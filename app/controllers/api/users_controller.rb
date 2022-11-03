@@ -55,6 +55,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find_by(params[:id])
+    if user.id 
+      user.update(password_param)
+    end
+  end
+
   private
   def session_params
     params.require(:user).permit(:email, :password)
@@ -62,6 +69,9 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
    end
+  def password_param
+    params.require(:user).permit(:password)
+  end
 
  
 end
