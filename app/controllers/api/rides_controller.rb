@@ -10,7 +10,7 @@ class Api::RidesController < ApplicationController
   end
 
   def show
-    @rides = Ride.where(id: params[:id]).map {|ride|
+    @ride = Ride.where("id = #{params[:id]}").map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
     {
@@ -35,7 +35,7 @@ class Api::RidesController < ApplicationController
       licence_plate: driver.licence_plate
     }
   }
-    render json: @rides
+    render json: @ride
    
   end
 

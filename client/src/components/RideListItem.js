@@ -2,8 +2,9 @@ import React from "react";
 import '../styles/component-styles/ride-list-item.scss';
 
 export default function RideListItem(props) {
+
   return (
-    <article className="ride-container">
+    <article className="ride-container" onClick={() => props.onClick(props.id)}>
       <header>
         <img src={props.avatar} className="avatar" alt="user-avatar"/>
         <div>
