@@ -1,8 +1,23 @@
 class Api::UsersController < ApplicationController
-  skip_before_action :authenticate, :only => [:create, :is_user, :destroy, :index]
+  skip_before_action :authenticate, :only => [:create, :is_user, :destroy, :index, :show, :update]
 
   def index
     @users = User.all
+    render json: @users
+  end
+
+  def show
+    @users = User.where(id: params[:id]).map {|user|
+    {
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      password_digest: user.password_digest,
+      avatar: user.avatar,
+      token: user.token
+    }
+  }
     render json: @users
   end
 
@@ -40,6 +55,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find_by(params[:id])
+    if user.id 
+      user.update(password_param)
+    end
+  end
+
   private
   def session_params
     params.require(:user).permit(:email, :password)
@@ -47,6 +69,9 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
    end
+  def password_param
+    params.require(:user).permit(:password)
+  end
 
  
 end
