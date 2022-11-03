@@ -69,7 +69,7 @@ class Api::RidesController < ApplicationController
   end
 
   def search_params
-    params.permit(:pickup, :dropoff, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes)
+    params.permit(:pickup, :dropoff, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes, :departure_date_time)
   end
 
   def search
