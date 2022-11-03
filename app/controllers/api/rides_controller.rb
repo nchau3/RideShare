@@ -14,7 +14,7 @@ class Api::RidesController < ApplicationController
     user = User.find(ride.driver.user.id)
     {
       id: ride.id,
-      departure_date_time: ride.departure_date_time,
+      departure_date_time: ride.departure_date_time.to_formatted_s(:long),
       pickup: ride.pickup,
       dropoff: ride.dropoff,
       number_of_seats: ride.number_of_seats,
@@ -44,7 +44,7 @@ class Api::RidesController < ApplicationController
       user = User.find(ride.driver.user.id)
       {
         id: ride.id,
-        departure_date_time: ride.departure_date_time,
+        departure_date_time: ride.departure_date_time.to_formatted_s(:long),
         pickup: ride.pickup,
         dropoff: ride.dropoff,
         number_of_seats: ride.number_of_seats,
@@ -77,7 +77,7 @@ class Api::RidesController < ApplicationController
     user = User.find(ride.driver.user.id)
     {
       id: ride.id,
-      departure_date_time: ride.departure_date_time,
+      departure_date_time: ride.departure_date_time.to_formatted_s(:long),
       pickup: ride.pickup,
       dropoff: ride.dropoff,
       number_of_seats: ride.number_of_seats,
