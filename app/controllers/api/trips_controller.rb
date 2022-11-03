@@ -2,6 +2,8 @@ class Api::TripsController < ApplicationController
   def index
   end
 
+  # Need to test code below for booking a trip (and route)
+
   def trip_params
     params.permit(:ride_id, :user_id)
   end
