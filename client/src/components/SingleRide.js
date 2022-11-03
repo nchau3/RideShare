@@ -1,11 +1,13 @@
 import React from "react";
+import '../styles/component-styles/ride-list-item.scss'
 import '../styles/component-styles/single-ride.scss';
 
 export default function SingleRide(props) {
+
   return (
     <article className="ride-container">
       <header>
-        <div className="avatar"></div>
+      <img src={props.avatar} className="avatar" alt="user-avatar"/>
         <div>
           <h3>{props.pickup} to {props.dropoff}</h3>
           <p>Leaving {props.departure}</p>
@@ -19,7 +21,7 @@ export default function SingleRide(props) {
       <footer>
         <div>
           <div>{props.first_name} {props.last_name}</div>
-          <div>5 stars, 50 rides</div>
+          <div>{props.rating} stars, {props.trip_count} rides</div>
         </div>
         <div>
           <div>Pickup: {props.pickup}</div>

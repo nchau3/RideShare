@@ -54,7 +54,9 @@ sample_user_id = 10
     user: User.find(sample_user_id),
     car_make: Faker::Vehicle.make,
     licence_plate: Faker::Vehicle.license_plate,
-    car_color: Faker::Vehicle.color
+    car_color: Faker::Vehicle.color,
+    rating: rand(2.5..5.0).round(1),
+    trip_count: rand(2..150)
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
   driver.save
@@ -79,10 +81,10 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
     number_of_seats: rand(1..3),
     cost_per_seat: rand(30..80),
     description: "I am going from here to there. please book a seat!",
-    allow_pets: false,
-    allow_oversize: false,
-    allow_skis: false,
-    allow_bikes: false
+    allow_pets: [true, false].sample,
+    allow_oversize: [true, false].sample,
+    allow_skis: [true, false].sample,
+    allow_bikes: [true, false].sample
   )
   # accessing driver name through ride
   # puts ride.driver.user.first_name

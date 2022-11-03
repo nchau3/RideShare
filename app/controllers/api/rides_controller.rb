@@ -10,7 +10,7 @@ class Api::RidesController < ApplicationController
   end
 
   def show
-    @rides = Ride.where(id: params[:id]).map {|ride|
+    @ride = Ride.where("id = #{params[:id]}").map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
     {
@@ -32,10 +32,12 @@ class Api::RidesController < ApplicationController
       car_make: driver.car_make,
       car_model: driver.car_model,
       car_color: driver.car_color,
-      licence_plate: driver.licence_plate
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count
     }
   }
-    render json: @rides
+    render json: @ride
    
   end
 
@@ -62,7 +64,9 @@ class Api::RidesController < ApplicationController
         car_make: driver.car_make,
         car_model: driver.car_model,
         car_color: driver.car_color,
-        licence_plate: driver.licence_plate
+        licence_plate: driver.licence_plate, 
+        rating: driver.rating,
+        trip_count: driver.trip_count
       }
     }
     render json: @rides
@@ -95,11 +99,11 @@ class Api::RidesController < ApplicationController
       car_make: driver.car_make,
       car_model: driver.car_model,
       car_color: driver.car_color,
-      licence_plate: driver.licence_plate
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count
     }
   }
     render json: @rides
   end
 end
-
-# @enhanced_cart ||= Product.where(id: cart.keys).map {|product| { product:product, quantity: cart[product.id.to_s] } }

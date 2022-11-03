@@ -2,10 +2,11 @@ import React from "react";
 import '../styles/component-styles/ride-list-item.scss';
 
 export default function RideListItem(props) {
+
   return (
-    <article className="ride-container">
+    <article className="ride-container" onClick={() => props.onClick(props.id)}>
       <header>
-        <img src={props.avatar} className="avatar"/>
+        <img src={props.avatar} className="avatar" alt="user-avatar"/>
         <div>
           <h3>{props.pickup} to {props.dropoff}</h3>
           <p>Leaving {props.departure}</p>
@@ -19,7 +20,7 @@ export default function RideListItem(props) {
       <footer>
         <div>
           <div>{props.first_name} {props.last_name}</div>
-          <div>5 stars, 50 rides</div>
+          <div>{props.rating} stars, {props.trip_count} rides</div>
         </div>
         <div>
           <div>Pickup: {props.pickup}</div>
