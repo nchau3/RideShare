@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     post '/trips/:id', to: 'trips#create'
 
     get 'users/:id', to: 'users#show'
-    
+    put 'users/:id', to: 'users#update'
+
   end
 
  

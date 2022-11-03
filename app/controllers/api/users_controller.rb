@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
       token: user.token
     }
   }
+    render json: @users
   end
 
   def is_user
