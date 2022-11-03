@@ -16,10 +16,10 @@ export default function NavBar() {
           <NavLink to="/login" className="nav-item" activeClassName="selected">LOGIN</NavLink>
         </li>
         <li>
-          <NavLink to="/rides" className="nav-item" activeClassName="selected">RIDES</NavLink>
+          <NavLink to="/rides" className="nav-item" activeClassName="selected">SEARCH RIDES</NavLink>
         </li>
         <li>
-          <NavLink to="/trips" className="nav-item" activeClassName="selected">TRIPS</NavLink>
+          <NavLink to="/trips" className="nav-item" activeClassName="selected">MY TRIPS</NavLink>
         </li>
       </ul>
     </nav>

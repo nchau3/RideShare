@@ -6,7 +6,6 @@ export default function Register(props) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(firstName, lastName);
 
   return (
     <div class="page-container">
