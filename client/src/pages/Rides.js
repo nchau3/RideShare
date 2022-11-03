@@ -49,6 +49,8 @@ export default function Rides() {
         dropoff={ride.dropoff}
         departure={ride.departure_date_time}
         cost={ride.cost_per_seat}
+        rating={ride.rating}
+        trip_count={ride.trip_count}
         />
         <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
       </div>

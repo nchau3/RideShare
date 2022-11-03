@@ -5,15 +5,17 @@ export default function SearchRides(props) {
   const [pickup, setPickup] = useState(null);
   const [dropoff, setDropoff] = useState(null);
   const [conditions, setConditions] = useState({
-    allow_pets: false,
-    allow_oversize: false,
-    allow_skis: false,
-    allow_bikes: false
+    allow_pets: null,
+    allow_oversize: null,
+    allow_skis: null,
+    allow_bikes: null
   }
   );
 
   function toggle(value) {
-    return !value;
+    if (value === null) {
+      return true
+    }
   }
 
   const searchParams = {

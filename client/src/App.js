@@ -14,6 +14,7 @@ import Trips from "./pages/Trips";
 
 //Styles
 import "./app.scss";
+import Profile from "./pages/Profile";
 
 export default function App() {
   const token = localStorage.getItem("token");
@@ -93,6 +94,9 @@ export default function App() {
       </Route>
       <Route exact path="/trips" name="Trips">
         <Trips />
+      </Route>
+      <Route exact path="/profile" name="Profile">
+        <Profile />
       </Route>
     </main>
   );

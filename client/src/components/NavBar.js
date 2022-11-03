@@ -16,6 +16,9 @@ export default function NavBar() {
           <NavLink to="/login" className="nav-item" activeClassName="selected">LOGIN</NavLink>
         </li>
         <li>
+          <NavLink to="/profile" className="nav-item" activeClassName="selected">MY PROFILE</NavLink>
+        </li>
+        <li>
           <NavLink to="/rides" className="nav-item" activeClassName="selected">SEARCH RIDES</NavLink>
         </li>
         <li>

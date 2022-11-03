@@ -1,4 +1,6 @@
 class Api::TripsController < ApplicationController
+  skip_before_action :authenticate
+
   def index
   end
 
@@ -11,6 +13,7 @@ class Api::TripsController < ApplicationController
   def create
     trip = Trip.new(trip_params)
     if trip.save
+      puts "trip ID!!!! #{trip.id}"
       render :json => {
         status: 201
       }
@@ -18,5 +21,7 @@ class Api::TripsController < ApplicationController
       render :json => {
         status: 401
       }
+    end
   end
+
 end
