@@ -5,7 +5,7 @@ export default function RideListItem(props) {
   return (
     <article className="ride-container">
       <header>
-        <img src={props.avatar} className="avatar"/>
+        <img src={props.avatar} className="avatar" alt="user-avatar"/>
         <div>
           <h3>{props.pickup} to {props.dropoff}</h3>
           <p>Leaving {props.departure}</p>
