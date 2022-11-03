@@ -1,21 +1,20 @@
 class ApplicationController < ActionController::API
-  def index
-    @manifest = 
-    {
-      "short_name": "React App",
-      "name": "Create React App Sample",
-      "icons": [
-        {
-          "src": "favicon.ico",
-          "sizes": "64x64 32x32 24x24 16x16",
-          "type": "image/x-icon"
-        }
-      ],
-      "start_url": ".",
-      "display": "standalone",
-      "theme_color": "#000000",
-      "background_color": "#ffffff"
-    }
-    render json: @manifest
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  before_action :authenticate
+
+  def current_user
+    @current_user
+  end
+
+  def logged_in?
+    !!current_user
+  end
+
+  private
+  def authenticate
+    Rails.logger.info request.headers["Authorization"]
+    authenticate_or_request_with_http_token do |token, options|
+      @current_user = User.find_by(token: token)
+    end
   end
 end

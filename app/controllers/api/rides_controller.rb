@@ -1,5 +1,6 @@
 class Api::RidesController < ApplicationController
   before_action :check_pickup, only: [:search]
+  skip_before_action :authenticate
 
   def check_pickup
     if params[:pickup].blank? #check to see if pickup paramater exists
