@@ -6,6 +6,20 @@ class Api::UsersController < ApplicationController
     render json: @users
   end
 
+  def show
+    @users = User.where(id: params[:id]).map {|user|
+    {
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      password_digest: user.password_digest,
+      avatar: user.avatar,
+      token: user.token
+    }
+  }
+  end
+
   def is_user
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
