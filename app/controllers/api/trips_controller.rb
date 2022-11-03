@@ -18,8 +18,3 @@ class Api::TripsController < ApplicationController
       }
   end
 end
-
-
-# trello instructions:
-# set up route POST (api/trips/:ride_id/:user_id)
-# ride id sent through request params, user id from session
