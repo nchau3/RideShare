@@ -21,6 +21,7 @@ export default function RideList(props) {
         dropoff={ride.dropoff}
         departure={ride.departure_date_time}
         cost={ride.cost_per_seat}
+        rating={ride.rating}
       />
     );
   });

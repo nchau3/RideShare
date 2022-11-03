@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_10_29_011035) do
     t.string "car_model"
     t.string "car_color"
     t.string "licence_plate"
+    t.decimal "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_drivers_on_user_id"

@@ -54,7 +54,9 @@ sample_user_id = 10
     user: User.find(sample_user_id),
     car_make: Faker::Vehicle.make,
     licence_plate: Faker::Vehicle.license_plate,
-    car_color: Faker::Vehicle.color
+    car_color: Faker::Vehicle.color,
+    rating: Faker::Number.between(from: 2.5, to: 5.0).round(1)
+    trip_count: 
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
   driver.save
