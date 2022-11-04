@@ -25,8 +25,12 @@ class Api::TripsController < ApplicationController
   end
 
 
+  def show_trips_params
+    params.permit(:user_id)
+  end
+
   def show
-    @trips = Trip.where(id: params[:id]).map {|trip|
+    @trips = Trip.where(show_trips_params).map {|trip|
     ride = Ride.find(trip.ride.id)
     driver = Driver.find(trip.ride.driver.id)
     user = User.find(trip.ride.driver.user.id)
@@ -36,7 +40,7 @@ class Api::TripsController < ApplicationController
       is_new: trip.is_new,
       is_completed: trip.is_completed,
       ride_id: ride.id,
-      departure_date_time: ride.departure_date_time.
+      departure_date_time: ride.departure_date_time,
       pickup: ride.pickup,
       dropoff: ride.dropoff,
       number_of_seats: ride.number_of_seats,

@@ -49,6 +49,8 @@ puts "creating drivers..."
 
 sample_user_id = 10
 
+Faker::Config.locale = 'en-CA'
+
 30.times do
   driver = Driver.new(
     user: User.find(sample_user_id),
@@ -56,7 +58,8 @@ sample_user_id = 10
     licence_plate: Faker::Vehicle.license_plate,
     car_color: Faker::Vehicle.color,
     rating: rand(2.5..5.0).round(1),
-    trip_count: rand(2..150)
+    trip_count: rand(2..150),
+    phone_number: Faker::PhoneNumber.phone_number
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
   driver.save

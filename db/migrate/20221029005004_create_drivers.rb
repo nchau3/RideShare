@@ -8,6 +8,7 @@ class CreateDrivers < ActiveRecord::Migration[6.1]
       t.string :licence_plate
       t.decimal :rating
       t.integer :trip_count
+      t.string :phone_number
       t.timestamps
     end
   end
