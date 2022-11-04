@@ -21,10 +21,11 @@ export default function SingleRide(props) {
           </div>
         </div>
         <div className="car-info">
-          <img src={props.car_image} className="car-pic" alt="image of driver's car"/>
+          <img src={props.car_image} className="car-pic" alt="driver's car"/>
         </div>
       </article>
-      <button onClick={() => props.onClick(props.id, props.user_id)}>Book Trip</button>
+      <button onClick={() => props.onSubmit(props.id, props.user_id)}>Book Trip</button>
+      <button onClick={() => props.goBack()}>Back to results</button>
     </section>
   );
 }
