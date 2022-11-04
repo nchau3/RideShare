@@ -71,6 +71,12 @@ puts "creating rides..."
 
 cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "Vancouver", "Kelowna", "North Dumfries", "Ottawa", "Newmarket", "Stouffville", "New York City"]
 
+description = [
+  "Hey all! Driving from #{ride.pickup} to #{ride.dropoff}. Please be on time!! Will have to leave even if you're late!",
+  "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
+  "Please don't book with me if you're stinky."
+]
+
 50.times do
   random_cities = cities.shuffle
   ride = Ride.new(
