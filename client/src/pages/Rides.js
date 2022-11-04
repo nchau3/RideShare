@@ -36,7 +36,7 @@ export default function Rides() {
   return (
     <div className="page-container">
       {ride ? 
-      <div className="page-card">
+      <div>
         <SingleRide
         key={ride.id}
         first_name={ride.first_name}
