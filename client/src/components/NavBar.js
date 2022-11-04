@@ -33,7 +33,16 @@ export default function NavBar(props) {
       </ul>
       {props.user &&
         <footer className="nav-item">
-          Logged in as: {props.user.first_name} {props.user.last_name}
+          <div>
+            Logged in as: {props.user.first_name} {props.user.last_name}
+          </div>
+          <div>
+            <button onClick={() => {
+              props.logout();
+            }}>
+              Logout
+            </button>
+          </div>
         </footer>
       }
     </nav>
