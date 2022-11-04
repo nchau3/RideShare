@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 
 //Components
@@ -17,6 +17,7 @@ import "./app.scss";
 import Profile from "./pages/Profile";
 
 export default function App() {
+  const history = useHistory();
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(token);
 
@@ -32,13 +33,12 @@ export default function App() {
       },
     }).then((response) => {
       console.log("response", response.data);
-      const token = response.data.token;
-      const id = response.data.user_id;
+      const user = response.data
       if (response.data.status !== 401) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user_id", id);
+        localStorage.setItem("token", user.token);
+        localStorage.setItem("user_id", user.user_id);
       }
-      return token;
+      return user;
     });
   }
 
@@ -55,48 +55,54 @@ export default function App() {
         },
       },
     }).then((response) => {
-      const token = response.data.token;
-      const id = response.data.user_id;
+      const user = response.data
       if (response.data.status !== 401) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user_id", id);
+        localStorage.setItem("token", user.token);
+        localStorage.setItem("user_id", user.user_id);
       }
-      return token;
+      return user;
     });
   }
 
   function loginCheck(email, password) {
-    onLogin(email, password).then((token) => {
-      setUser(token);
+    onLogin(email, password).then((user) => {
+      setUser(user);
     });
   }
 
   function registerCheck(email, password, firstName, lastName) {
-    onRegister(email, password, firstName, lastName).then((token) => {
-      setUser(token);
+    onRegister(email, password, firstName, lastName).then((user) => {
+      setUser(user);
     });
+  }
+
+  function logoutUser() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+    setUser("");
+    history.go(0);
   }
 
   return (
     <main>
-      <NavBar />
+      <NavBar user={user} logout={logoutUser}/>
       <Route exact path="/" name="Home">
         <Home />
       </Route>
       <Route exact path="/login" name="Login">
-        <Login onLogin={loginCheck} />
+        {user ? <Redirect to="/rides" /> : <Login onLogin={loginCheck} />}
       </Route>
       <Route exact path="/register" name="Register">
-        <Register onRegister={registerCheck} />
+        {user ? <Redirect to="/rides" /> : <Register onRegister={registerCheck} />}
       </Route>
       <Route exact path="/rides" name="Rides">
         <Rides />
       </Route>
       <Route exact path="/trips" name="Trips">
-        <Trips />
+        {!user ? <Redirect to="/" /> : <Trips />}
       </Route>
       <Route exact path="/profile" name="Profile">
-        <Profile />
+        {!user ? <Redirect to="/" /> : <Profile />}
       </Route>
     </main>
   );

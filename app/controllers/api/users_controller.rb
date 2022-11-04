@@ -1,11 +1,6 @@
 class Api::UsersController < ApplicationController
   skip_before_action :authenticate, :only => [:create, :is_user, :destroy, :index, :show, :update]
 
-  def index
-    @users = User.all
-    render json: @users
-  end
-
   def show
     @users = User.where(id: params[:id]).map {|user|
     {
@@ -28,6 +23,8 @@ class Api::UsersController < ApplicationController
       render :json => {
         token: user.token,
         user_id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
         status: 200
       }
     else

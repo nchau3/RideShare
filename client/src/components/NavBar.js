@@ -4,27 +4,47 @@ import { NavLink } from "react-router-dom";
 //Styles
 import '../styles/component-styles/navbar.scss';
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <nav>
       <h1 className="logo">RIDESHARE</h1>
       <ul>
-        <li>
-          <NavLink to="/register" className="nav-item" activeClassName="selected">REGISTER</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" className="nav-item" activeClassName="selected">LOGIN</NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile" className="nav-item" activeClassName="selected">MY PROFILE</NavLink>
-        </li>
+        {!props.user && 
+        <>
+          <li className="register-bar">
+            <NavLink to="/login" className="nav-item nav-button">LOGIN</NavLink>
+            <NavLink to="/register" className="nav-item nav-button">REGISTER</NavLink>
+          </li>
+        </>
+        }
+        {props.user &&
+        <>
+          <li>
+            <NavLink to="/profile" className="nav-item" activeClassName="selected">MY PROFILE</NavLink>
+          </li>
+          <li>
+            <NavLink to="/trips" className="nav-item" activeClassName="selected">MY TRIPS</NavLink>
+          </li>
+        </>
+        }
         <li>
           <NavLink to="/rides" className="nav-item" activeClassName="selected">SEARCH RIDES</NavLink>
         </li>
-        <li>
-          <NavLink to="/trips" className="nav-item" activeClassName="selected">MY TRIPS</NavLink>
-        </li>
       </ul>
+      {props.user &&
+        <footer className="nav-item">
+          <div>
+            Logged in as: {props.user.first_name} {props.user.last_name}
+          </div>
+          <div>
+            <button onClick={() => {
+              props.logout();
+            }}>
+              Logout
+            </button>
+          </div>
+        </footer>
+      }
     </nav>
   );
 }
