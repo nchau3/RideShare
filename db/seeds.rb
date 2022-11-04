@@ -71,18 +71,9 @@ puts "creating rides..."
 
 cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "Vancouver", "Kelowna", "North Dumfries", "Ottawa", "Newmarket", "Stouffville", "New York City"]
 
-description = [
-  "Hey all! Driving from #{ride.pickup} to #{ride.dropoff}. Please be on time!! Will have to leave even if you're late!",
-  "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
-  "Please don't book with me if you're stinky. Have some consideration, people.",
-  "Will make multiple stops for coffee & washroom breaks.",
-  "Leaving on #{ride.departure_date_time} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
-  "Will wait for you if you're late - just let me know. Not rushing to get to #{ride.dropoff} for this trip.",
-  "Flexible pickup - 5km radius of #{ride.pickup}. :D"
-]
-
 50.times do
   random_cities = cities.shuffle
+
   ride = Ride.new(
     driver: Driver.all.sample,
     departure_date_time: Faker::Time.forward(days: 30, period: :day),
@@ -95,7 +86,18 @@ description = [
     allow_skis: [true, false].sample,
     allow_bikes: [true, false].sample
   )
-  ride.descripton = description.sample
+
+  description = [
+  "Hey all! Driving from #{ride.pickup} to #{ride.dropoff}. Please be on time!! Will have to leave even if you're late!",
+  "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
+  "Please don't book with me if you're stinky. Have some consideration, people.",
+  "Will make multiple stops for coffee & washroom breaks.",
+  "Leaving on #{ride.departure_date_time} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
+  "Will wait for you if you're late - just let me know. Not rushing to get to #{ride.dropoff} for this trip.",
+  "Flexible pickup - 5km radius of #{ride.pickup}. :D"
+  ]
+
+  ride.description = description.sample
   # accessing driver name through ride
   # puts ride.driver.user.first_name
   ride.save
