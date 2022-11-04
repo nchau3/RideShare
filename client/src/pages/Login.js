@@ -6,7 +6,7 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
 
   return (
-    <div class="page-container">
+    <div className="page-container">
       <h1>Login!</h1>
       <form
         onSubmit={(event) => {

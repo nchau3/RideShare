@@ -1,6 +1,5 @@
 import React from "react";
-import '../styles/component-styles/ride-list-item.scss'
-import '../styles/component-styles/single-ride.scss';
+import '../styles/component-styles/single-ride.scss'; 
 
 export default function SingleRide(props) {
 
