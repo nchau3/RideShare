@@ -1,14 +1,20 @@
 section {
   height: 800px;
-  background-color: blueviolet;
+  width: 550px;
+  border: solid 1px;
+
+  button {
+    font-size: 1.5em;
+    justify-self: center;
+  }
 }
 
 .single-ride {
-  width: 500px;
   height: 400px;
   display: flex;
   justify-content: space-between;
   background-color: greenyellow;
+  margin-bottom: 1em;
 
   .ride-info {
     width: 60%;
@@ -32,15 +38,16 @@ section {
   }
   
   .car-info {
-    width: 175px;
-    height: 175px;
+    width: 200px;
+    height: 200px;
     border: solid;
   
     .car-pic {
-      height: 300px;
-      width: 300px;
-      border: solid;
+      height: 150px;
+      width: auto;
+      transform: scaleX(-1);
     }
   }
+  
 }
 

@@ -7,7 +7,7 @@ export default function SingleRide(props) {
       <article className="single-ride">
         <div className="ride-info">
           <header>
-            <img src={props.avatar} className="avatar" alt="user-profile-pic" />
+            <img src={props.avatar} className="avatar" alt="driver" />
             <div>
               <h4>{props.first_name} {props.last_name}</h4>
               <div>{props.rating} <i class="fa-solid fa-star"></i> {props.trip_count} rides</div>
@@ -19,7 +19,9 @@ export default function SingleRide(props) {
             <div>Pickup: {props.pickup}</div>
             <div>Dropoff: {props.dropoff}</div>
           </div>
-          <img src={props.car_image} className="car-pic" alt="image of driver's car" />
+        </div>
+        <div className="car-info">
+          <img src={props.car_image} className="car-pic" alt="image of driver's car"/>
         </div>
       </article>
       <button onClick={() => props.onClick(props.id, props.user_id)}>Book Trip</button>
