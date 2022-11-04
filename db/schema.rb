@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_10_29_011035) do
     t.string "licence_plate"
     t.decimal "rating"
     t.integer "trip_count"
+    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_drivers_on_user_id"
