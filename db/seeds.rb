@@ -58,8 +58,7 @@ sample_user_id = 10
     car_color: Faker::Vehicle.color,
     rating: rand(2.5..5.0).round(1),
     trip_count: rand(2..150),
-    phone_number: "647-#{3.times.map{rand(9)}.join}-#{4.times.map{rand(9
-    )}.join}"
+    phone_number: "#{[647, 416, 519, 226, 514, 438, 613, 250, 778].sample}-#{3.times.map{rand(9)}.join}-#{4.times.map{rand(9)}.join}"
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
   driver.save
