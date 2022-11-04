@@ -41,9 +41,8 @@ export default function SingleRide(props) {
           </div>
         </footer>
       </article>
-      <div className="car-pic">
-        <img src={props.car_image} />
-      </div>
+
+      <img src={props.car_image} alt="car-pic" />
     </>
   );
 }
