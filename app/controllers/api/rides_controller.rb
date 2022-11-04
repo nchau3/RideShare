@@ -1,3 +1,5 @@
+require 'active_support/all'
+
 class Api::RidesController < ApplicationController
   before_action :check_pickup, only: [:search]
   skip_before_action :authenticate
@@ -77,7 +79,15 @@ class Api::RidesController < ApplicationController
   end
 
   def search
-    @rides = Ride.where(search_params).map {|ride|
+    modified_params = search_params
+
+    if modified_params[:departure_date_time]
+      @departure_beginning = params[:departure_date_time].to_date.beginning_of_day
+      @departure_end = params[:departure_date_time].to_date.end_of_day
+      modified_params[:departure_date_time] = @departure_beginning..@departure_end
+    end
+
+    @rides = Ride.where(modified_params).map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
     {

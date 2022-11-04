@@ -13,7 +13,6 @@ class Api::TripsController < ApplicationController
   def create
     trip = Trip.new(trip_params)
     if trip.save
-      puts "trip ID!!!! #{trip.id}"
       render :json => {
         status: 201
       }
@@ -40,7 +39,7 @@ class Api::TripsController < ApplicationController
       is_new: trip.is_new,
       is_completed: trip.is_completed,
       ride_id: ride.id,
-      departure_date_time: ride.departure_date_time,
+      departure_date_time: ride.departure_date_time.to_formatted_s(:long),
       pickup: ride.pickup,
       dropoff: ride.dropoff,
       number_of_seats: ride.number_of_seats,

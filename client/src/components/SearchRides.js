@@ -4,6 +4,7 @@ import '../styles/component-styles/search-rides.scss';
 export default function SearchRides(props) {
   const [pickup, setPickup] = useState(null);
   const [dropoff, setDropoff] = useState(null);
+  const [departure, setDeparture] = useState(null);
   const [conditions, setConditions] = useState({
     allow_pets: null,
     allow_oversize: null,
@@ -21,6 +22,7 @@ export default function SearchRides(props) {
   const searchParams = {
     pickup: pickup,
     dropoff: dropoff,
+    departure_date_time: departure,
     allow_pets: conditions.allow_pets,
     allow_oversize: conditions.allow_oversize,
     allow_skis: conditions.allow_skis,
@@ -53,6 +55,15 @@ export default function SearchRides(props) {
           name="dropoff"
           value={dropoff}
           onChange={(event) => setDropoff(event.target.value)}
+        />
+
+        <label for="departure">Departure:</label>
+        <input
+          type="date"
+          id="departure"
+          name="departure"
+          value={departure}
+          onChange={(event) => setDeparture(event.target.value)}
         />
 
         <div className="checkbox">
