@@ -94,7 +94,7 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
   "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
   "Please don't book with me if you're stinky. Have some consideration, people.",
   "Will make multiple stops for coffee & washroom breaks.",
-  "Leaving on #{ride.departure_date_time.to_formatted_s(:long)} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
+  "Leaving on #{ride.departure_date_time.to_formatted_s(:short)} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
   "Will wait for you if you're late - just let me know. Not rushing to get to #{ride.dropoff} for this trip.",
   "Flexible pickup - 5km radius of #{ride.pickup}'s City Hall. :D"
   ]
