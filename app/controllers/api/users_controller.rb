@@ -53,9 +53,14 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(params[:id])
+    puts "id from params: #{params[:id]}"
+    user = User.find(params[:id])
     if user.id 
       user.update(password_param)
+      puts "password changed!!!!!"
+      render :json => {
+        status: 201
+      }
     end
   end
 
@@ -67,7 +72,7 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password)
    end
   def password_param
-    params.require(:user).permit(:password)
+    params.permit(:password)
   end
 
  
