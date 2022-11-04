@@ -39,6 +39,8 @@ export default function Rides() {
       <div>
         <SingleRide
         key={ride.id}
+        id={ride.id}
+        user_id={user_id}
         first_name={ride.first_name}
         last_name={ride.last_name}
         avatar={ride.avatar}
@@ -52,8 +54,8 @@ export default function Rides() {
         rating={ride.rating}
         trip_count={ride.trip_count}
         description={ride.description}
+        onClick={bookTrip}
         />
-        <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
       </div>
         :
         rides.length > 0 ? 

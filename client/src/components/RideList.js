@@ -30,7 +30,7 @@ export default function RideList(props) {
   });
 
   return (
-    <ul>
+    <ul className="search-results">
       {searchResults}
     </ul>
   );

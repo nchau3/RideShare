@@ -30,10 +30,15 @@ nav {
         background-color: white;
         padding: .7em 1em;
         border-radius: 4px;
+        transition: opacity .1s;
       }
 
       .nav-button:hover {
-        opacity: .7;
+        opacity: .6;
+      }
+
+      .nav-button:active {
+        opacity: .8;
       }
     }
 

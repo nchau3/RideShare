@@ -1,5 +1,46 @@
-.car-pic {
-  height: 300px;
-  width: 300px;
-  border: solid;
+section {
+  height: 800px;
+  background-color: blueviolet;
 }
+
+.single-ride {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  background-color: greenyellow;
+
+  .ride-info {
+    width: 60%;
+    padding: .5em;
+    background-color: aqua;
+
+    header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 1.25em;
+      margin-bottom: .5em;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      box-shadow: 2px 2px 3px rgb(78, 78, 78);
+    }
+  }
+  
+  .car-info {
+    width: 175px;
+    height: 175px;
+    border: solid;
+  
+    .car-pic {
+      height: 300px;
+      width: 300px;
+      border: solid;
+    }
+  }
+}
+
