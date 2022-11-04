@@ -55,7 +55,7 @@ sample_user_id = 10
     car_make: Faker::Vehicle.make,
     licence_plate: Faker::Vehicle.license_plate,
     car_color: Faker::Vehicle.color,
-    rating: rand(2.5..5.0).round(1),
+    rating: rand(3.8..5.0).round(1),
     trip_count: rand(2..150)
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
