@@ -26,6 +26,7 @@ export default function SingleRide(props) {
         <div>
           <div>Pickup: {props.pickup}</div>
           <div>Dropoff: {props.dropoff}</div>
+          <div>Description: {props.description}</div>
         </div>
         <div className="car-info">
           <div>{props.car_make} {props.car_model}</div>
