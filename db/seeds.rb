@@ -57,7 +57,7 @@ sample_user_id = 10
     licence_plate: Faker::Vehicle.license_plate,
     car_color: Faker::Vehicle.color,
     rating: rand(3.8..5.0).round(1),
-    trip_count: rand(2..150)
+    trip_count: rand(2..150),
     phone_number: "#{[647, 416, 519, 226, 514, 438, 613, 250, 778].sample}-#{3.times.map{rand(9)}.join}-#{4.times.map{rand(9)}.join}"
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
@@ -94,9 +94,9 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
   "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
   "Please don't book with me if you're stinky. Have some consideration, people.",
   "Will make multiple stops for coffee & washroom breaks.",
-  "Leaving on #{ride.departure_date_time} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
+  "Leaving on #{ride.departure_date_time.to_formatted_s(:short)} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
   "Will wait for you if you're late - just let me know. Not rushing to get to #{ride.dropoff} for this trip.",
-  "Flexible pickup - 5km radius of #{ride.pickup}. :D"
+  "Flexible pickup - 5km radius of #{ride.pickup}'s City Hall. :D"
   ]
 
   ride.description = description.sample
