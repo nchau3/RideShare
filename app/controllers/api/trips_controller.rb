@@ -34,7 +34,6 @@ class Api::TripsController < ApplicationController
     ride = Ride.find(trip.ride.id)
     driver = Driver.find(trip.ride.driver.id)
     user = User.find(trip.ride.driver.user.id)
-    puts show_trips_params
     {
       id: trip.id,
       date_booked: trip.date_booked,
