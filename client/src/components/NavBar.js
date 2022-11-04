@@ -12,8 +12,8 @@ export default function NavBar(props) {
         {!props.user && 
         <>
           <li className="register-bar">
-            <NavLink to="/login" className="nav-item">LOGIN</NavLink>
-            <NavLink to="/register" className="nav-item">REGISTER</NavLink>
+            <NavLink to="/login" className="nav-item nav-button">LOGIN</NavLink>
+            <NavLink to="/register" className="nav-item nav-button">REGISTER</NavLink>
           </li>
         </>
         }

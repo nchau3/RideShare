@@ -6,13 +6,14 @@ import TripList from "../components/Triplist";
 
 export default function Trips() {
   const [trips, setTrips] = useState([]);
+  const user_id = localStorage.getItem("user_id");
 
   useEffect(() => {
-    axios.get("/api/trips/all")
+    axios.get(`/api/trips/${user_id}`)
     .then(response => {
       setTrips(response.data);
     })
-  }, []);
+  }, [user_id]);
 
   return (
     <div className="page-container">

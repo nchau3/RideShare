@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 
 //Components
@@ -17,6 +17,7 @@ import "./app.scss";
 import Profile from "./pages/Profile";
 
 export default function App() {
+  const history = useHistory();
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(token);
 
@@ -79,6 +80,7 @@ export default function App() {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
     setUser("");
+    history.go(0);
   }
 
   return (
@@ -94,7 +96,7 @@ export default function App() {
         {user ? <Redirect to="/rides" /> : <Register onRegister={registerCheck} />}
       </Route>
       <Route exact path="/rides" name="Rides">
-        {!user ? <Redirect to="/" /> : <Rides />}
+        <Rides />
       </Route>
       <Route exact path="/trips" name="Trips">
         {!user ? <Redirect to="/" /> : <Trips />}
