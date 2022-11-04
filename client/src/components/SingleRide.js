@@ -1,15 +1,16 @@
 import React from "react";
-import '../styles/component-styles/single-ride.scss'; 
+import "../styles/component-styles/single-ride.scss";
 
 export default function SingleRide(props) {
-
   return (
     <>
       <article className="ride-container">
         <header>
-        <img src={props.avatar} className="avatar" alt="user-avatar"/>
+          <img src={props.avatar} className="avatar" alt="user-avatar" />
           <div>
-            <h3>{props.pickup} to {props.dropoff}</h3>
+            <h3>
+              {props.pickup} to {props.dropoff}
+            </h3>
             <p>Leaving {props.departure}</p>
           </div>
           <div>
@@ -20,8 +21,12 @@ export default function SingleRide(props) {
         </header>
         <footer>
           <div>
-            <div>{props.first_name} {props.last_name}</div>
-            <div>{props.rating} stars, {props.trip_count} rides</div>
+            <div>
+              {props.first_name} {props.last_name}
+            </div>
+            <div>
+              {props.rating} stars, {props.trip_count} rides
+            </div>
           </div>
           <div>
             <div>Pickup: {props.pickup}</div>
@@ -29,13 +34,15 @@ export default function SingleRide(props) {
             <div>Description: {props.description}</div>
           </div>
           <div className="car-info">
-            <div>{props.car_make} {props.car_model}</div>
+            <div>
+              {props.car_make} {props.car_model}
+            </div>
             <div>{props.car_color}</div>
           </div>
         </footer>
       </article>
       <div className="car-pic">
-        IMAGE NOT FOUND
+        <img src={props.car_image} />
       </div>
     </>
   );
