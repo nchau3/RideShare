@@ -24,4 +24,44 @@ class Api::TripsController < ApplicationController
     end
   end
 
+
+  def show
+    @trips = Trip.where(id: params[:id]).map {|trip|
+    ride = Ride.find(trip.ride.id)
+    driver = Driver.find(trip.ride.driver.id)
+    user = User.find(trip.ride.driver.user.id)
+    {
+      id: trip.id,
+      date_booked: trip.date_booked,
+      is_new: trip.is_new,
+      is_completed: trip.is_completed,
+      ride_id: ride.id,
+      departure_date_time: ride.departure_date_time.
+      pickup: ride.pickup,
+      dropoff: ride.dropoff,
+      number_of_seats: ride.number_of_seats,
+      cost_per_seat: ride.cost_per_seat,
+      description: ride.description,
+      allow_pets: ride.allow_pets,
+      allow_oversize: ride.allow_oversize,
+      allow_skis: ride.allow_skis,
+      allow_bikes: ride.allow_bikes,
+      driver_id: driver.id,
+      car_make: driver.car_make,
+      car_model: driver.car_model,
+      car_color: driver.car_color,
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      avatar: user.avatar
+    }  
+
+    }
+  
+    render json: @trips
+  end
+
 end
+
