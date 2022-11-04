@@ -56,8 +56,8 @@ sample_user_id = 10
     car_make: Faker::Vehicle.make,
     licence_plate: Faker::Vehicle.license_plate,
     car_color: Faker::Vehicle.color,
-    rating: rand(2.5..5.0).round(1),
-    trip_count: rand(2..150),
+    rating: rand(3.8..5.0).round(1),
+    trip_count: rand(2..150)
     phone_number: "#{[647, 416, 519, 226, 514, 438, 613, 250, 778].sample}-#{3.times.map{rand(9)}.join}-#{4.times.map{rand(9)}.join}"
     )
   driver.car_model = Faker::Vehicle.model(make_of_model: driver.car_make)
@@ -75,6 +75,7 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
 
 50.times do
   random_cities = cities.shuffle
+
   ride = Ride.new(
     driver: Driver.all.sample,
     departure_date_time: Faker::Time.forward(days: 30, period: :day),
@@ -82,12 +83,23 @@ cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "V
     dropoff: random_cities[1],
     number_of_seats: rand(1..3),
     cost_per_seat: rand(30..80),
-    description: "I am going from here to there. please book a seat!",
     allow_pets: [true, false].sample,
     allow_oversize: [true, false].sample,
     allow_skis: [true, false].sample,
     allow_bikes: [true, false].sample
   )
+
+  description = [
+  "Hey all! Driving from #{ride.pickup} to #{ride.dropoff}. Please be on time!! Will have to leave even if you're late!",
+  "PARTAYYYY CARPOOL! No boring people please, karaoke time for the duration of the ride. Hit me up if you're down!",
+  "Please don't book with me if you're stinky. Have some consideration, people.",
+  "Will make multiple stops for coffee & washroom breaks.",
+  "Leaving on #{ride.departure_date_time} SHARP!! If you need to be picked up at another location, please let me know. Will charge extra $$$.",
+  "Will wait for you if you're late - just let me know. Not rushing to get to #{ride.dropoff} for this trip.",
+  "Flexible pickup - 5km radius of #{ride.pickup}. :D"
+  ]
+
+  ride.description = description.sample
   # accessing driver name through ride
   # puts ride.driver.user.first_name
   ride.save

@@ -51,6 +51,7 @@ export default function Rides() {
         cost={ride.cost_per_seat}
         rating={ride.rating}
         trip_count={ride.trip_count}
+        description={ride.description}
         />
         <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
       </div>
