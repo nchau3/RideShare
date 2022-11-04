@@ -1,8 +1,7 @@
 import React from "react";
-import '../styles/component-styles/single-ride.scss';
+import "../styles/component-styles/single-ride.scss";
 
 export default function SingleRide(props) {
-
   return (
     <section>
       <article className="single-ride">
@@ -20,13 +19,9 @@ export default function SingleRide(props) {
             <div>Pickup: {props.pickup}</div>
             <div>Dropoff: {props.dropoff}</div>
           </div>
-          <p>{props.description}</p>
-        </div>
-        <div className="car-info">
-
+          <img src={props.car_image} className="car-pic" alt="image of driver's car" />
         </div>
       </article>
-
       <button onClick={() => props.onClick(props.id, props.user_id)}>Book Trip</button>
     </section>
   );

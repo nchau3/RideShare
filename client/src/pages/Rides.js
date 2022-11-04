@@ -11,26 +11,25 @@ export default function Rides() {
   const user_id = localStorage.getItem("user_id");
 
   function searchRides(params) {
-    axios.get("/api/rides/search", { params: params })
-    .then(response => {
-        setRides(response.data)
-      });
+    axios.get("/api/rides/search", { params: params }).then((response) => {
+      setRides(response.data);
+    });
   }
 
   function displayRide(ride_id) {
-    axios.get(`api/rides/${ride_id}`)
-    .then(response => {
-      setRide(response.data[0]);
-    })
+    axios.get(`api/rides/${ride_id}`).then((response) => {
+      let result = response.data[0];
+      result.car_image = `https://cdn-01.imagin.studio/getImage?customer=cashaunjijicompany&make=${response.data[0].car_make}&modelFamily=${response.data[0].car_model}`;
+      setRide(result);
+    });
   }
 
   function bookTrip(ride_id, user_id) {
-    axios.post(`api/trips/${ride_id}/${user_id}`)
-    .then(response => {
-    if (response.status === 201) {
-      console.log("booked!")
-    } 
-    })
+    axios.post(`api/trips/${ride_id}/${user_id}`).then((response) => {
+      if (response.status === 201) {
+        console.log("booked!");
+      }
+    });
   }
 
   return (
@@ -55,6 +54,7 @@ export default function Rides() {
         trip_count={ride.trip_count}
         description={ride.description}
         onClick={bookTrip}
+        car_image={ride.car_image}
         />
       </div>
         :
@@ -66,7 +66,6 @@ export default function Rides() {
           :
           <SearchRides onSubmit={searchRides} />
       }
-
     </div>
   );
 }
