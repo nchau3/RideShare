@@ -16,6 +16,11 @@ nav {
     font-size: 2.5em;
   }
 
+  .nav-item {
+    color: white;
+    text-decoration: none;
+  }
+  
   ul {
     list-style-type: none;
 
@@ -24,21 +29,9 @@ nav {
       display: flex;
       justify-content: space-around;
 
-      .nav-button {
-        font-weight: bold;
+      .button {
         color: variables.$primary-color;
         background-color: white;
-        padding: .7em 1em;
-        border-radius: 4px;
-        transition: opacity .1s;
-      }
-
-      .nav-button:hover {
-        opacity: .6;
-      }
-
-      .nav-button:active {
-        opacity: .8;
       }
     }
 
@@ -52,12 +45,8 @@ nav {
       list-style-type: none;
       text-decoration: none;
       
-      .nav-item {
-        color: white;
-        text-decoration: none;
-      }
     }
-
+    
     li:hover {
       opacity: .7;
     }

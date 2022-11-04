@@ -21,6 +21,7 @@ export default function TripList(props) {
         pickup={trip.pickup}
         dropoff={trip.dropoff}
         departure={trip.departure_date_time}
+        onClick={props.onClick}
         cost={trip.cost_per_seat}
         rating={trip.rating}
         trip_count={trip.trip_count}

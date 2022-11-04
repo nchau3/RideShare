@@ -8,10 +8,7 @@ export default function Profile() {
   const [password, setPassword] = useState("");
 
   const user_id = localStorage.getItem("user_id");
-
-  //mock data for number of trips completed
-  const trip_count = Math.floor(Math.random() * 50);
-
+  
   useEffect(() => {
     axios.get(`api/users/${user_id}`)
     .then(response => {
