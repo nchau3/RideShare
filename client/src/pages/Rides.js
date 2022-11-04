@@ -32,6 +32,14 @@ export default function Rides() {
     });
   }
 
+  function goBackToRides() {
+    setRide(null);
+  }
+
+  function clearSearch() {
+    setRides([]);
+  }
+
   return (
     <div className="page-container">
       {ride ? 
@@ -56,6 +64,7 @@ export default function Rides() {
         onClick={bookTrip}
         car_image={ride.car_image}
         />
+        <button onClick={() => goBackToRides()}>Go Back</button>
       </div>
         :
         rides.length > 0 ? 
