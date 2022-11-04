@@ -32,13 +32,12 @@ export default function App() {
       },
     }).then((response) => {
       console.log("response", response.data);
-      const token = response.data.token;
-      const id = response.data.user_id;
+      const user = response.data
       if (response.data.status !== 401) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user_id", id);
+        localStorage.setItem("token", user.token);
+        localStorage.setItem("user_id", user.user_id);
       }
-      return token;
+      return user;
     });
   }
 
@@ -55,31 +54,30 @@ export default function App() {
         },
       },
     }).then((response) => {
-      const token = response.data.token;
-      const id = response.data.user_id;
+      const user = response.data
       if (response.data.status !== 401) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user_id", id);
+        localStorage.setItem("token", user.token);
+        localStorage.setItem("user_id", user.user_id);
       }
-      return token;
+      return user;
     });
   }
 
   function loginCheck(email, password) {
-    onLogin(email, password).then((token) => {
-      setUser(token);
+    onLogin(email, password).then((user) => {
+      setUser(user);
     });
   }
 
   function registerCheck(email, password, firstName, lastName) {
-    onRegister(email, password, firstName, lastName).then((token) => {
-      setUser(token);
+    onRegister(email, password, firstName, lastName).then((user) => {
+      setUser(user);
     });
   }
 
   return (
     <main>
-      <NavBar />
+      <NavBar user={user}/>
       <Route exact path="/" name="Home">
         <Home />
       </Route>
