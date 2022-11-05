@@ -122,7 +122,7 @@ class Api::RidesController < ApplicationController
   end
 
   def create
-    ride = Ride.new(trip_params)
+    ride = Ride.new(ride_params)
     if ride.save
       render :json => {
         status: 201
@@ -138,4 +138,20 @@ class Api::RidesController < ApplicationController
     @rides = Ride.find(params[:id])
     @rides.destroy
   end
+
+  def update_params
+    params.permit(:driver_id, :departure_date_time, :pickup, :dropoff, :number_of_seats, :cost_per_seat, :description, :allow_pets, :allow_oversize, :allow_skis. :allow_bikes)
+  end
+
+  def update
+    ride = Ride.find(params[:id])
+    if ride.id 
+      ride.update(update_params)
+      render :json => {
+        status: 201
+      }
+    end
+  end
+    
+
 end
