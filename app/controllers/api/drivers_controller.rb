@@ -1,6 +1,6 @@
 class Api::DriversController < ApplicationController
   skip_before_action :authenticate  
-  
+
   def index
   end
 
@@ -10,6 +10,7 @@ class Api::DriversController < ApplicationController
 
   
   def show
+
     @ride = Ride.where(show_rides_params).map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
@@ -40,4 +41,13 @@ class Api::DriversController < ApplicationController
     render json: @ride
    
   end
+
+  def driver_profile_params
+    params.permit(:user_id)
+  end
+
+  def profile
+    @driver = Driver.where()
+  end
+
 end
