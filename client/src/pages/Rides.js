@@ -43,9 +43,10 @@ export default function Rides() {
   return (
     <div className="page-container">
       {ride ? 
-      <div>
         <SingleRide
         key={ride.id}
+        id={ride.id}
+        user_id={user_id}
         first_name={ride.first_name}
         last_name={ride.last_name}
         avatar={ride.avatar}
@@ -59,23 +60,20 @@ export default function Rides() {
         rating={ride.rating}
         trip_count={ride.trip_count}
         description={ride.description}
+        onSubmit={bookTrip}
+        goBack={goBackToRides}
         car_image={ride.car_image}
         remaining_seats={ride.remaining_seats}
         />
-        <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
-        <button onClick={() => goBackToRides()}>Go Back</button>
-      </div>
         :
         rides.length > 0 ? 
           <div className="listings-container">
-            <button onClick={() => clearSearch()}>Search Again</button>
             <h1>Search results:</h1>
-            <RideList rides={rides} onClick={displayRide}/>
+            <RideList rides={rides} onClick={displayRide} clearSearch={clearSearch}/>
           </div>
           :
           <SearchRides onSubmit={searchRides} />
       }
-      
     </div>
   );
 }

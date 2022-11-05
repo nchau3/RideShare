@@ -1,11 +1,17 @@
 @use '../variables.scss';
+@import "../mixins.scss";
+
+.nav-link {
+  text-decoration: none;
+  color: variables.$accent-color;
+}
 
 nav {
   padding: 1em;
   height: 100%;
   width: fit-content;
   background-color: variables.$primary-color;
-  color: white;
+  color: variables.$accent-color;
 
   .logo {
     width: fit-content;
@@ -15,25 +21,18 @@ nav {
     margin-bottom: .5em;
     font-size: 2.5em;
   }
-
+  
   ul {
     list-style-type: none;
-
+    
     .register-bar {
       font-size: 1em;
       display: flex;
       justify-content: space-around;
 
-      .nav-button {
-        font-weight: bold;
+      button {
         color: variables.$primary-color;
-        background-color: white;
-        padding: .7em 1em;
-        border-radius: 4px;
-      }
-
-      .nav-button:hover {
-        opacity: .7;
+        background-color: variables.$accent-color;
       }
     }
 
@@ -45,14 +44,8 @@ nav {
       padding: .5em .5em;
       font-size: 1.5em;
       list-style-type: none;
-      text-decoration: none;
-      
-      .nav-item {
-        color: white;
-        text-decoration: none;
-      }
     }
-
+    
     li:hover {
       opacity: .7;
     }

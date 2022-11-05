@@ -31,8 +31,12 @@ export default function RideList(props) {
   });
 
   return (
-    <ul>
-      {searchResults}
-    </ul>
+    <>
+      <button onClick={() => props.clearSearch()}>Search again</button>
+
+      <ul className="search-results">
+        {searchResults}
+      </ul>
+    </>
   );
 }

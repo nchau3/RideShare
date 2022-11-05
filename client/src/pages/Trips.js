@@ -15,12 +15,17 @@ export default function Trips() {
     })
   }, [user_id]);
 
+  //placeholder for trip details dropdown
+  function dropdown(id) {
+    console.log("dropdown");
+  }
+
   return (
     <div className="page-container">
       {trips.length > 0 ? 
         <div className="listings-container">
-          <h1>Search results:</h1>
-          <TripList trips={trips} />
+          <h1>My Trips</h1>
+          <TripList trips={trips} onClick={dropdown}/>
         </div>
         :
         <h1>No trips booked!</h1>
