@@ -7,33 +7,33 @@ export default function Login(props) {
 
   return (
     <div className="page-container">
-      <h1>Login!</h1>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          props.onLogin(email, password);
-        }}
-      >
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
+      <div className="form-container">
+        <h1>Sign In</h1>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            props.onLogin(email, password);
+          }}
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
 
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

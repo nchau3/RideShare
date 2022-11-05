@@ -54,7 +54,7 @@ export default function SingleRide(props) {
         </div>
       </article>
       <button onClick={() => props.onSubmit(props.id, props.user_id)}>Book Trip</button>
-      <button onClick={() => props.goBack()}>Back to results</button>
+      <button id="go-back" onClick={() => props.goBack()}>Go Back</button>
     </section>
   );
 }

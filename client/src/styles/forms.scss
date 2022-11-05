@@ -1,0 +1,82 @@
+@use "./variables.scss";
+@import "./mixins.scss";
+
+.form-container {
+  @include page-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5em;
+  min-width: 400px;
+  height: fit-content;
+
+  input, label, button {
+    margin-top: .5em;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+
+    .location-input {
+      display: flex;
+      width: 130%;
+    }
+
+
+    input {
+      background-color: rgb(231, 231, 231);
+      width: 100%;
+      padding: .35em;
+      height: 1.5em;
+      margin: .25em;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.25em;
+    }
+
+    .checkbox-container {
+      margin: .5em 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 125%;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 40%;
+      height: 60px;
+
+      label {
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      input {
+        width: 1em;
+        height: 1em;
+      }
+
+      .icon {
+        @include icon;
+      }
+
+    }
+
+    button {
+      font-size: 1.5em;
+      width: 75%;
+    }
+  }
+}
