@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/page-styles/register.scss";
 
 export default function Register(props) {
   const [firstName, setFirstName] = useState("");
