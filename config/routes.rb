@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'trips/:user_id', to: 'trips#show'
 
     get 'drivers/:driver_id', to: 'drivers#show'
-    get 'drivers/:user_id', to: 'drivers#profile'
+    get 'drivers/:user_id/:driver_id', to: 'drivers#profile'
     post 'drivers/:driver_id', to: 'drivers#create'
 
 

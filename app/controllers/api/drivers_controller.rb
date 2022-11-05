@@ -47,7 +47,21 @@ class Api::DriversController < ApplicationController
   end
 
   def profile
-    @driver = Driver.where()
+    @drivers = Driver.where(driver_profile_params).map {|driver|
+    user = User.find(driver.user.id)
+    {
+      driver_id: driver.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      avatar: user.avatar,
+      car_make: driver.car_make,
+      car_model: driver.car_model,
+      car_color: driver.car_color,
+      licence_plate: driver.licence_plate, 
+      rating: driver.rating,
+      trip_count: driver.trip_count
+    }
+  }
   end
 
 end
