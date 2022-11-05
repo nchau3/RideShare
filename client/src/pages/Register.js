@@ -7,55 +7,52 @@ export default function Register(props) {
   const [password, setPassword] = useState("");
 
   return (
-    <div class="page-container">
-      <h1>Register!</h1>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          props.onRegister(email, password, firstName, lastName);
-        }}
-      >
-        <label for="first_name">First name:</label>
-        <input
-          type="text"
-          id="first_name"
-          name="first_name"
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
-        />
+    <div className="page-container">
+      <div className="form-container">
+        <h1>Register for Rideshare</h1>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            props.onRegister(email, password, firstName, lastName);
+          }}
+        >
+          <input
+            type="text"
+            placeholder="First Name"
+            name="first_name"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+          />
 
-        <label for="last_name">Last name:</label>
-        <input
-          type="text"
-          id="last_name"
-          name="last_name"
-          value={lastName}
-          onChange={(event) => setLastName(event.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="last_name"
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
+          />
 
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
 
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-        <label for="password_confirm">Confirm password:</label>
-        <input type="password" id="password_confirm" name="password_confirm" />
+          <input type="password" placeholder="Confirm Password" name="password_confirm" />
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

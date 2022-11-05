@@ -12,6 +12,7 @@
   button {
     width: fit-content;
     padding: .6em .9em;
+    margin: .5em;
     border: none;
     transition: opacity .1s;
     font-weight: bold;
@@ -33,4 +34,16 @@
 @mixin page-card {
   box-shadow: 2px 2px 4px rgb(59, 59, 59);
   border-radius: 5px;
+}
+
+@mixin icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 5em;
+  margin-right: .75em;
+  color: variables.$accent-color;
+  background-color: variables.$primary-color;
 }
