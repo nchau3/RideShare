@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/rides/search', to: 'rides#search'
     get '/rides/:id', to: 'rides#show'
     post '/rides/:driver_id', to 'rides#create'
+    delete '/rides/:id', to: 'rides#delete'
 
     post '/register', to: 'users#create'
     post '/login', to: 'users#is_user' 

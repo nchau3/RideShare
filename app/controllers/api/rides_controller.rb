@@ -119,7 +119,6 @@ class Api::RidesController < ApplicationController
 
   def ride_params
     params.permit(:driver_id, :departure_date_time, :pickup, :dropoff, :number_of_seats, :cost_per_seat, :description, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes) 
-    
   end
 
   def create
