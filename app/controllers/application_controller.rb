@@ -10,6 +10,12 @@ class ApplicationController < ActionController::API
     !!current_user
   end
 
+  def remaining_seats(ride_id)
+    total_seats = Ride.find(ride_id).number_of_seats
+    trips_booked = Trip.where(ride_id: ride_id).count
+    remaining_seats = total_seats - trips_booked
+  end
+
   private
   def authenticate
     Rails.logger.info request.headers["Authorization"]

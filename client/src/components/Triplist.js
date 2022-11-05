@@ -24,6 +24,7 @@ export default function TripList(props) {
         cost={trip.cost_per_seat}
         rating={trip.rating}
         trip_count={trip.trip_count}
+        remaining_seats={trip.remaining_seats}
       />
       <footer>
         <div>UPCOMING</div>

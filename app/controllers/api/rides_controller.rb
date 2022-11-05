@@ -11,12 +11,6 @@ class Api::RidesController < ApplicationController
     end
   end
 
-  def remaining_seats(ride_id)
-    total_seats = Ride.find(ride_id).number_of_seats
-    trips_booked = Trip.where(ride_id: ride_id).count
-    remaining_seats = total_seats - trips_booked
-  end
-
   def show
     @ride = Ride.where("id = #{params[:id]}").map {|ride|
     driver = Driver.find(ride.driver.id)
