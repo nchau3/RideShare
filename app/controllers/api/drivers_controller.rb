@@ -10,7 +10,6 @@ class Api::DriversController < ApplicationController
 
   
   def show
-
     @ride = Ride.where(show_rides_params).map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
