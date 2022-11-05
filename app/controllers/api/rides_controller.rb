@@ -133,4 +133,9 @@ class Api::RidesController < ApplicationController
       }
     end
   end
+
+  def destroy
+    @rides = Ride.find(params[:id])
+    @rides.destroy
+  end
 end
