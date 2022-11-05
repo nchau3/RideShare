@@ -12,7 +12,11 @@ class Api::RidesController < ApplicationController
   end
 
   def remaining_seats(ride_id)
-    trip_count = 
+    # number of seats - query to find how many have booked the trip = remaining seats
+
+    seats_available = Ride.find_by(ride_id).number_of_seats
+    trips_booked = Trip.where()
+    remaining_seats = seats_available - trips_booked
   end
 
   def show
@@ -40,7 +44,8 @@ class Api::RidesController < ApplicationController
       car_color: driver.car_color,
       licence_plate: driver.licence_plate, 
       rating: driver.rating,
-      trip_count: driver.trip_count
+      trip_count: driver.trip_count,
+      remaining_seats: ride.remaining_seats
     }
   }
     render json: @ride
@@ -72,7 +77,8 @@ class Api::RidesController < ApplicationController
         car_color: driver.car_color,
         licence_plate: driver.licence_plate, 
         rating: driver.rating,
-        trip_count: driver.trip_count
+        trip_count: driver.trip_count,
+        remaining_seats: ride.remaining_seats
       }
     }
     render json: @rides
@@ -115,7 +121,8 @@ class Api::RidesController < ApplicationController
       car_color: driver.car_color,
       licence_plate: driver.licence_plate, 
       rating: driver.rating,
-      trip_count: driver.trip_count
+      trip_count: driver.trip_count,
+      remaining_seats: ride.remaining_seats
     }
   }
     render json: @rides
