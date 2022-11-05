@@ -25,6 +25,9 @@ export default function Trips() {
       {trips.length > 0 ? 
         <div className="listings-container">
           <h1>My Trips</h1>
+          <button>All</button>
+          <button>Upcoming</button>
+          <button>Completed</button>
           <TripList trips={trips} onClick={dropdown}/>
         </div>
         :
