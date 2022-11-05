@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import RideList from "../components/RideList";
@@ -6,6 +7,7 @@ import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
 
 export default function Rides() {
+  const history = useHistory();
   const [ride, setRide] = useState();
   const [rides, setRides] = useState([]);
   const user_id = localStorage.getItem("user_id");
@@ -33,6 +35,10 @@ export default function Rides() {
     })
   }
 
+  function goBackToRides() {
+    history.back();
+  }
+
   return (
     <div className="page-container">
       {ride ? 
@@ -54,6 +60,7 @@ export default function Rides() {
         description={ride.description}
         />
         <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
+        <button onClick={() => goBackToRides()}>Go Back</button>
       </div>
         :
         rides.length > 0 ? 
@@ -64,7 +71,7 @@ export default function Rides() {
           :
           <SearchRides onSubmit={searchRides} />
       }
-
+      
     </div>
   );
 }
