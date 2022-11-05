@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 section {
   height: 800px;
   width: 550px;
@@ -10,20 +12,21 @@ section {
 }
 
 .single-ride {
+  @include page-card;
   height: 400px;
   display: flex;
   justify-content: space-between;
-  background-color: greenyellow;
+  align-items: center;
+  padding: 1em;
   margin-bottom: 1em;
 
   .ride-info {
-    width: 60%;
-    padding: .5em;
-    background-color: aqua;
+    width: 50%;
+    height: 100%;
 
     header {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       font-size: 1.25em;
       margin-bottom: .5em;
@@ -35,16 +38,23 @@ section {
       border-radius: 60px;
       box-shadow: 2px 2px 3px rgb(78, 78, 78);
     }
+
+    .ride-description {
+      padding: .4em;
+    }
   }
   
   .car-info {
-    width: 200px;
-    height: 200px;
-    border: solid;
+    border: solid 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    height: 75%;
   
     .car-pic {
-      height: 150px;
       width: auto;
+      height: 200px;
       transform: scaleX(-1);
     }
   }

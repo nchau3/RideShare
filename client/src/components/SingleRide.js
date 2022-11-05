@@ -18,10 +18,19 @@ export default function SingleRide(props) {
           <div>
             <div>Pickup: {props.pickup}</div>
             <div>Dropoff: {props.dropoff}</div>
+            <div>2 seats left - ${props.cost} per seat</div>
           </div>
+          <p className="ride-description">{props.description}</p>
         </div>
         <div className="car-info">
           <img src={props.car_image} className="car-pic" alt="driver's car"/>
+          <div>{props.car_make} {props.car_model}</div>
+          <div className="ride-conditions">
+            <div><i class="fa-solid fa-dog"></i> Pets</div>
+            <div><i class="fa-solid fa-suitcase"></i> Oversize</div>
+            <div><i class="fa-solid fa-person-skiing"></i> Skis</div>
+            <div><i class="fa-solid fa-bicycle"></i> Bikes</div>
+          </div>
         </div>
       </article>
       <button onClick={() => props.onSubmit(props.id, props.user_id)}>Book Trip</button>

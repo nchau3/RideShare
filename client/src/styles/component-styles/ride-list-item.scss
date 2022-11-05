@@ -1,4 +1,7 @@
+@import "../mixins.scss";
+
 .ride-container {
+  @include page-card;
   width: 500px;
   height: 175px;
   padding: 1rem;
@@ -6,9 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 20px;
-  box-shadow: 2px 2px 4px rgb(59, 59, 59);
-  background-color: rgb(255, 254, 242);
-  background-image: url("https://www.transparenttextures.com/patterns/cross-scratches.png");
 
   header {
     display: flex;
