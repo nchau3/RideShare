@@ -29,7 +29,8 @@ class Api::TripsController < ApplicationController
   end
 
   def show
-    @trips = Trip.where(show_trips_params).map {|trip|
+    @trips = Trip.where(show_trips_params).sort_by { |trip| trip.ride.departure_date_time}
+    .map {|trip|
     ride = Ride.find(trip.ride.id)
     driver = Driver.find(trip.ride.driver.id)
     user = User.find(trip.ride.driver.user.id)

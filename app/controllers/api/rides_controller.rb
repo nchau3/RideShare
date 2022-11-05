@@ -45,7 +45,7 @@ class Api::RidesController < ApplicationController
   end
 
   def index
-    @rides = Ride.all.map {|ride|
+    @rides = Ride.all.sort_by(&:departure_date_time).map {|ride|
       driver = Driver.find(ride.driver.id)
       user = User.find(ride.driver.user.id)
       {
@@ -89,7 +89,7 @@ class Api::RidesController < ApplicationController
       modified_params[:departure_date_time] = @departure_beginning..@departure_end
     end
 
-    @rides = Ride.where(modified_params).map {|ride|
+    @rides = Ride.where(modified_params).sort_by(&:departure_date_time).map {|ride|
     driver = Driver.find(ride.driver.id)
     user = User.find(ride.driver.user.id)
     {
