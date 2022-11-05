@@ -7,7 +7,6 @@ import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
 
 export default function Rides() {
-  const history = useHistory();
   const [ride, setRide] = useState();
   const [rides, setRides] = useState([]);
   const user_id = localStorage.getItem("user_id");
@@ -36,7 +35,11 @@ export default function Rides() {
   }
 
   function goBackToRides() {
-    history.back();
+    setRide(null);
+  }
+
+  function clearSearch() {
+    setRides([]);
   }
 
   return (
@@ -65,6 +68,7 @@ export default function Rides() {
         :
         rides.length > 0 ? 
           <div className="listings-container">
+            <button onClick={() => clearSearch()}>Search Again</button>
             <h1>Search results:</h1>
             <RideList rides={rides} onClick={displayRide}/>
           </div>
