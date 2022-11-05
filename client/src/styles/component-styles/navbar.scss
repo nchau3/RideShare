@@ -1,4 +1,10 @@
 @use '../variables.scss';
+@import "../mixins.scss";
+
+.nav-link {
+  text-decoration: none;
+  color: variables.$accent-color;
+}
 
 nav {
   padding: 1em;
@@ -15,21 +21,16 @@ nav {
     margin-bottom: .5em;
     font-size: 2.5em;
   }
-
-  .nav-item {
-    color: variables.$accent-color;
-    text-decoration: none;
-  }
   
   ul {
     list-style-type: none;
-
+    
     .register-bar {
       font-size: 1em;
       display: flex;
       justify-content: space-around;
 
-      .button {
+      button {
         color: variables.$primary-color;
         background-color: variables.$accent-color;
       }
@@ -43,8 +44,6 @@ nav {
       padding: .5em .5em;
       font-size: 1.5em;
       list-style-type: none;
-      text-decoration: none;
-      
     }
     
     li:hover {

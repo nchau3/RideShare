@@ -24,7 +24,7 @@ export default function Trips() {
     <div className="page-container">
       {trips.length > 0 ? 
         <div className="listings-container">
-          <h1>Search results:</h1>
+          <h1>My Trips</h1>
           <TripList trips={trips} onClick={dropdown}/>
         </div>
         :

@@ -66,7 +66,11 @@ export default function App() {
 
   function loginCheck(email, password) {
     onLogin(email, password).then((user) => {
-      setUser(user);
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
     });
   }
 
@@ -79,8 +83,7 @@ export default function App() {
   function logoutUser() {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
-    setUser("");
-    history.go(0);
+    setUser(null);
   }
 
   return (

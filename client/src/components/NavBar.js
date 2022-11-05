@@ -8,14 +8,14 @@ export default function NavBar(props) {
   return (
     <nav>
       <h1 className="logo">
-        <NavLink to="/" className="nav-item">RIDESHARE</NavLink>
+        <NavLink to="/" className="nav-link">RIDESHARE</NavLink>
       </h1>
       <ul>
         {!props.user ? 
         <>
           <li className="register-bar">
-            <button><NavLink to="/login" className="nav-item">LOGIN</NavLink></button>
-            <button><NavLink to="/register" className="nav-item">REGISTER</NavLink></button> 
+            <NavLink to="/login" className="nav-link"><button>LOGIN</button></NavLink>
+            <NavLink to="/register" className="nav-link"><button>REGISTER</button></NavLink> 
           </li>
         </>
         :
@@ -28,15 +28,15 @@ export default function NavBar(props) {
         {props.user &&
         <>
           <li>
-            <NavLink to="/profile" className="nav-item" activeClassName="selected">MY PROFILE</NavLink>
+            <NavLink to="/profile" className="nav-link" activeClassName="selected">MY PROFILE</NavLink>
           </li>
           <li>
-            <NavLink to="/trips" className="nav-item" activeClassName="selected">MY TRIPS</NavLink>
+            <NavLink to="/trips" className="nav-link" activeClassName="selected">MY TRIPS</NavLink>
           </li>
         </>
         }
         <li>
-          <NavLink to="/rides" className="nav-item" activeClassName="selected">SEARCH RIDES</NavLink>
+          <NavLink to="/rides" className="nav-link" activeClassName="selected">SEARCH RIDES</NavLink>
         </li>
       </ul>
     </nav>
