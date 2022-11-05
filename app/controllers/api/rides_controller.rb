@@ -116,4 +116,22 @@ class Api::RidesController < ApplicationController
   }
     render json: @rides
   end
+
+  def ride_params
+    params.permit(:driver_id, :departure_date_time, :pickup, :dropoff, :number_of_seats, :cost_per_seat, :description, :allow_pets, :allow_oversize, :allow_skis, :allow_bikes) 
+    
+  end
+
+  def create
+    ride = Ride.new(trip_params)
+    if ride.save
+      render :json => {
+        status: 201
+      }
+    else 
+      render :json => {
+        status: 401
+      }
+    end
+  end
 end

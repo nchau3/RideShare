@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post '/rides/:driver_id', to 'rides#create'
 
     post '/register', to: 'users#create'
-    post '/login', to: 'users#is_user'
+    post '/login', to: 'users#is_user' 
 
     get 'users/:id', to: 'users#show'
     put 'users/:id', to: 'users#update'
