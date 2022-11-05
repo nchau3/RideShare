@@ -60,6 +60,7 @@ export default function Rides() {
         trip_count={ride.trip_count}
         description={ride.description}
         car_image={ride.car_image}
+        remaining_seats={ride.remaining_seats}
         />
         <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
         <button onClick={() => goBackToRides()}>Go Back</button>

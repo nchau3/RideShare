@@ -12,13 +12,18 @@ class Api::RidesController < ApplicationController
   end
 
   def remaining_seats(ride_id)
-    # number of seats - query to find how many have booked the trip = remaining seats
 
-    seats_available = Ride.find(ride_id).number_of_seats
-    puts ride_id
-    puts seats_available
-    # trips_booked = Trip.where()
-    # remaining_seats = seats_available - trips_booked
+    # number of seats available - query to find how many have booked the trip = remaining seats
+
+    total_seats = Ride.find(ride_id).number_of_seats
+    puts "RIDE ID", ride_id
+    puts "TOTAL SEATS", total_seats
+
+    trips_booked = Trip.where(ride_id: ride_id).count
+    puts "TRIPS BOOKED", trips_booked
+
+    remaining_seats = total_seats - trips_booked
+    puts "REMAINING SEATS", remaining_seats
   end
 
   def show
