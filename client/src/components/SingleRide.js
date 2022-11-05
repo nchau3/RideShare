@@ -24,7 +24,7 @@ export default function SingleRide(props) {
         </div>
         <div className="car-info">
           <img src={props.car_image} className="car-pic" alt="driver's car"/>
-          <div>{props.car_make} {props.car_model}</div>
+          <h4>{props.car_make} {props.car_model}</h4>
           <div className="ride-conditions">
             <div><i class="fa-solid fa-dog"></i> Pets</div>
             <div><i class="fa-solid fa-suitcase"></i> Oversize</div>

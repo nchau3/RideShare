@@ -5,7 +5,7 @@ nav {
   height: 100%;
   width: fit-content;
   background-color: variables.$primary-color;
-  color: white;
+  color: variables.$accent-color;
 
   .logo {
     width: fit-content;
@@ -17,7 +17,7 @@ nav {
   }
 
   .nav-item {
-    color: white;
+    color: variables.$accent-color;
     text-decoration: none;
   }
   
@@ -31,7 +31,7 @@ nav {
 
       .button {
         color: variables.$primary-color;
-        background-color: white;
+        background-color: variables.$accent-color;
       }
     }
 
