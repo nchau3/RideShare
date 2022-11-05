@@ -36,7 +36,8 @@ class Api::RidesController < ApplicationController
       car_color: driver.car_color,
       licence_plate: driver.licence_plate, 
       rating: driver.rating,
-      trip_count: driver.trip_count
+      trip_count: driver.trip_count,
+      remaining_seats: remaining_seats(ride.id)
     }
   }
     render json: @ride
@@ -68,7 +69,8 @@ class Api::RidesController < ApplicationController
         car_color: driver.car_color,
         licence_plate: driver.licence_plate, 
         rating: driver.rating,
-        trip_count: driver.trip_count
+        trip_count: driver.trip_count,
+        remaining_seats: remaining_seats(ride.id)
       }
     }
     render json: @rides
@@ -111,7 +113,8 @@ class Api::RidesController < ApplicationController
       car_color: driver.car_color,
       licence_plate: driver.licence_plate, 
       rating: driver.rating,
-      trip_count: driver.trip_count
+      trip_count: driver.trip_count,
+      remaining_seats: remaining_seats(ride.id)
     }
   }
     render json: @rides

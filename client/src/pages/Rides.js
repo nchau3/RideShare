@@ -63,6 +63,7 @@ export default function Rides() {
         onSubmit={bookTrip}
         goBack={goBackToRides}
         car_image={ride.car_image}
+        remaining_seats={ride.remaining_seats}
         />
         :
         rides.length > 0 ? 

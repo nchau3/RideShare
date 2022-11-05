@@ -25,6 +25,7 @@ export default function RideList(props) {
         onClick={props.onClick}
         rating={ride.rating}
         trip_count={ride.trip_count}
+        remaining_seats={ride.remaining_seats}
       />
     );
   });
