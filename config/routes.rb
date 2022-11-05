@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
     post '/trips/:ride_id/:user_id', to: 'trips#create'
     get 'trips/:user_id', to: 'trips#show'
+
+    get 'drivers/:driver_id', to: 'drivers#show'
+    post 'drivers/:driver_id', to: 'drivers#create'
+
+
   end
 
  
