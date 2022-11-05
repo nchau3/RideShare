@@ -26,10 +26,30 @@ export default function SingleRide(props) {
           <img src={props.car_image} className="car-pic" alt="driver's car"/>
           <h4>{props.car_make} {props.car_model}</h4>
           <div className="ride-conditions">
-            <div><i class="fa-solid fa-dog"></i> Pets</div>
-            <div><i class="fa-solid fa-suitcase"></i> Oversize</div>
-            <div><i class="fa-solid fa-person-skiing"></i> Skis</div>
-            <div><i class="fa-solid fa-bicycle"></i> Bikes</div>
+            <div className="condition-item">
+              <div className="icon">
+                <i class="fa-solid fa-dog"></i>
+              </div>
+              Pets
+            </div>
+            <div className="condition-item">
+              <div className="icon">
+              <i class="fa-solid fa-suitcase"></i>
+              </div>
+              <div>Oversize</div>
+            </div>
+            <div className="condition-item">
+              <div className="icon">
+              <i class="fa-solid fa-person-skiing"></i> 
+              </div>
+              Skis
+            </div>
+            <div className="condition-item">
+              <div className="icon">
+              <i class="fa-solid fa-bicycle"></i>
+              </div>
+              Bikes
+            </div>
           </div>
         </div>
       </article>
