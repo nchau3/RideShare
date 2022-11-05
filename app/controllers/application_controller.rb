@@ -16,11 +16,6 @@ class ApplicationController < ActionController::API
     remaining_seats = total_seats - trips_booked
   end
 
-  def sort_by_date(rides)
-    # h.sort_by! { |k| -k[:bookings_nd] }
-    rides.sortby! {|ride| -ride[:departure_date_time]}
-  end
-
   private
   def authenticate
     Rails.logger.info request.headers["Authorization"]
