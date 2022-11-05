@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Redirect, useHistory } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import axios from "axios";
 
 //Components
@@ -11,13 +11,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Rides from "./pages/Rides";
 import Trips from "./pages/Trips";
-
-//Styles
-import "./app.scss";
 import Profile from "./pages/Profile";
 
+//Styles
+import "./styles/app.scss";
+import "./styles/forms.scss"
+
 export default function App() {
-  const history = useHistory();
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(token);
 
