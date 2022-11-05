@@ -32,37 +32,49 @@ export default function Rides() {
     });
   }
 
+  function goBackToRides() {
+    setRide(null);
+  }
+
+  function clearSearch() {
+    setRides([]);
+  }
+
   return (
     <div className="page-container">
-      {ride ? (
-        <div>
-          <SingleRide
-            key={ride.id}
-            first_name={ride.first_name}
-            last_name={ride.last_name}
-            avatar={ride.avatar}
-            car_model={ride.car_model}
-            car_make={ride.car_make}
-            car_color={ride.car_color}
-            pickup={ride.pickup}
-            dropoff={ride.dropoff}
-            departure={ride.departure_date_time}
-            cost={ride.cost_per_seat}
-            rating={ride.rating}
-            trip_count={ride.trip_count}
-            description={ride.description}
-            car_image={ride.car_image}
-          />
-          <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
-        </div>
-      ) : rides.length > 0 ? (
-        <div className="listings-container">
-          <h1>Search results:</h1>
-          <RideList rides={rides} onClick={displayRide} />
-        </div>
-      ) : (
-        <SearchRides onSubmit={searchRides} />
-      )}
+      {ride ? 
+      <div>
+        <SingleRide
+        key={ride.id}
+        first_name={ride.first_name}
+        last_name={ride.last_name}
+        avatar={ride.avatar}
+        car_model={ride.car_model}
+        car_make={ride.car_make}
+        car_color={ride.car_color}
+        pickup={ride.pickup}
+        dropoff={ride.dropoff}
+        departure={ride.departure_date_time}
+        cost={ride.cost_per_seat}
+        rating={ride.rating}
+        trip_count={ride.trip_count}
+        description={ride.description}
+        car_image={ride.car_image}
+        />
+        <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
+        <button onClick={() => goBackToRides()}>Go Back</button>
+      </div>
+        :
+        rides.length > 0 ? 
+          <div className="listings-container">
+            <button onClick={() => clearSearch()}>Search Again</button>
+            <h1>Search results:</h1>
+            <RideList rides={rides} onClick={displayRide}/>
+          </div>
+          :
+          <SearchRides onSubmit={searchRides} />
+      }
+      
     </div>
   );
 }
