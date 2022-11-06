@@ -28,19 +28,29 @@ export default function Trips() {
     })
   }
 
+  function filterTrips(is_completed) {
+    axios.get(`/api/trips/${user_id}`, {
+      params: {
+        is_completed: is_completed
+      }
+    })
+    .then(response => {
+      setTrips(response.data);
+    })
+  }
+
   return (
     <div className="page-container">
-      {trips.length > 0 ? 
         <div className="listings-container">
           <h1>My Trips</h1>
           <button onClick={clickAll}>All</button>
-          <button>Upcoming</button>
-          <button>Completed</button>
+          <button onClick={() => filterTrips(false)}>Upcoming</button>
+          <button onClick={() => filterTrips(true)}>Completed</button>
           <TripList trips={trips} onClick={dropdown}/>
-        </div>
-        :
+      {trips.length === 0 &&
         <h1>No trips booked!</h1>
       }
+      </div>
     </div>
   );
 }
