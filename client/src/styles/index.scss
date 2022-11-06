@@ -9,6 +9,7 @@ html {
 
 body {
   @include button-styling;
+  background-image: url("../assets/background.jpg");
   height: 100%;
   margin: 0;
   padding: 0;
