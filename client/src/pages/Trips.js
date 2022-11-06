@@ -21,7 +21,6 @@ export default function Trips() {
   }
 
   function clickAll() {
-    console.log("Clicked ALL!!!!!!!!");
     axios.get(`/api/trips/${user_id}`)
     .then(response => {
       setTrips(response.data);
