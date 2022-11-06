@@ -47,7 +47,7 @@ export default function Trips() {
           <button onClick={() => filterTrips(true)}>COMPLETED</button>
           <TripList trips={trips} onClick={dropdown}/>
       {trips.length === 0 &&
-        <h1>No trips booked!</h1>
+        <h1>No trips yet!</h1>
       }
       </div>
     </div>
