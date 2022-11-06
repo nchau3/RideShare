@@ -66,5 +66,10 @@ class Api::TripsController < ApplicationController
     render json: @trips
   end
 
+  def destroy
+    @trips = Trip.find(params[:id])
+    @trips.destroy
+  end
+
 end
 

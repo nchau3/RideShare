@@ -6,9 +6,6 @@ import RideListItem from "./RideListItem";
 //import './styles/ride.scss';
 
 export default function TripList(props) {
-  function cancelTrip() {
-    
-  }
 
   const tripsForUser = props.trips.map((trip) => {
     return (

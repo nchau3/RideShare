@@ -19,8 +19,7 @@ Rails.application.routes.draw do
 
     post '/trips/:ride_id/:user_id', to: 'trips#create'
     get 'trips/:user_id', to: 'trips#show'
-    delete '/trips/:user_id', to: 'trips#destroy' 
-
+    delete '/trips/:user_id', to: 'trips#destroy'
 
     get 'drivers/:driver_id', to: 'drivers#show' 
     get 'driver/:driver_id', to: 'drivers#profile' 
