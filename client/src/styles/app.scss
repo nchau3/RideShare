@@ -18,9 +18,14 @@ main {
 }
 
 .page-container {
+  background-image: url("../assets/background.jpg");
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 100%;
   padding: 2em;
+}
 
+.hidden {
+  display: none;
 }
