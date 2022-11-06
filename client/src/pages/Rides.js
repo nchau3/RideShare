@@ -10,8 +10,8 @@ export default function Rides() {
   const [rides, setRides] = useState([]);
   const user_id = localStorage.getItem("user_id");
 
-  function searchRides(params) {
-    axios.get("/api/rides/search", { params: params }).then((response) => {
+  function searchRides(searchParams) {
+    axios.get("/api/rides/search", { params: searchParams }).then((response) => {
       setRides(response.data);
     });
   }
