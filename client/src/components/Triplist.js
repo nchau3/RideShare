@@ -31,6 +31,7 @@ export default function TripList(props) {
         <div>UPCOMING</div>
         <div>CONFIRMATION #</div>
         <div>DRIVER DETAILS</div>
+        <button> CANCEL TRIP </button>
       </footer>
       </>
     );
