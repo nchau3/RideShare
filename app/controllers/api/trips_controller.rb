@@ -67,7 +67,7 @@ class Api::TripsController < ApplicationController
   end
 
   def destroy
-    @trips = Trip.find(params[:user_id])
+    @trips = Trip.find(params[:trip_id])
     @trips.destroy
   end
 
