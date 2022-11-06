@@ -54,7 +54,8 @@ class Api::TripsController < ApplicationController
       car_make: driver.car_make,
       car_model: driver.car_model,
       car_color: driver.car_color,
-      licence_plate: driver.licence_plate, 
+      licence_plate: driver.licence_plate,
+      phone_number: driver.phone_number, 
       rating: driver.rating,
       trip_count: driver.trip_count,
       first_name: user.first_name,
@@ -66,6 +67,11 @@ class Api::TripsController < ApplicationController
     }
   
     render json: @trips
+  end
+
+  def destroy
+    @trips = Trip.find(params[:id])
+    @trips.destroy
   end
 
 end
