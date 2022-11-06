@@ -20,12 +20,20 @@ export default function Trips() {
     console.log("dropdown");
   }
 
+  function clickAll() {
+    console.log("Clicked ALL!!!!!!!!");
+    axios.get(`/api/trips/${user_id}`)
+    .then(response => {
+      setTrips(response.data);
+    })
+  }
+
   return (
     <div className="page-container">
       {trips.length > 0 ? 
         <div className="listings-container">
           <h1>My Trips</h1>
-          <button>All</button>
+          <button onClick={clickAll}>All</button>
           <button>Upcoming</button>
           <button>Completed</button>
           <TripList trips={trips} onClick={dropdown}/>
