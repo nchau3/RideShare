@@ -4,6 +4,7 @@ import axios from "axios";
 import RideList from "../components/RideList";
 import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
+import CreateRide from "../components/CreateRide";
 
 export default function Rides() {
   const [ride, setRide] = useState();
@@ -14,6 +15,12 @@ export default function Rides() {
     axios.get("/api/rides/search", { params: params }).then((response) => {
       setRides(response.data);
     });
+  }
+
+  function createRide(params) {
+    axios
+      .post("/api/rides/:driver_id", { params: params })
+      .then((repsonse) => {});
   }
 
   function displayRide(ride_id) {
@@ -42,38 +49,41 @@ export default function Rides() {
 
   return (
     <div className="page-container">
-      {ride ? 
+      {ride ? (
         <SingleRide
-        key={ride.id}
-        id={ride.id}
-        user_id={user_id}
-        first_name={ride.first_name}
-        last_name={ride.last_name}
-        avatar={ride.avatar}
-        car_model={ride.car_model}
-        car_make={ride.car_make}
-        car_color={ride.car_color}
-        pickup={ride.pickup}
-        dropoff={ride.dropoff}
-        departure={ride.departure_date_time}
-        cost={ride.cost_per_seat}
-        rating={ride.rating}
-        trip_count={ride.trip_count}
-        description={ride.description}
-        onSubmit={bookTrip}
-        goBack={goBackToRides}
-        car_image={ride.car_image}
-        remaining_seats={ride.remaining_seats}
+          key={ride.id}
+          id={ride.id}
+          user_id={user_id}
+          first_name={ride.first_name}
+          last_name={ride.last_name}
+          avatar={ride.avatar}
+          car_model={ride.car_model}
+          car_make={ride.car_make}
+          car_color={ride.car_color}
+          pickup={ride.pickup}
+          dropoff={ride.dropoff}
+          departure={ride.departure_date_time}
+          cost={ride.cost_per_seat}
+          rating={ride.rating}
+          trip_count={ride.trip_count}
+          description={ride.description}
+          onSubmit={bookTrip}
+          goBack={goBackToRides}
+          car_image={ride.car_image}
+          remaining_seats={ride.remaining_seats}
         />
-        :
-        rides.length > 0 ? 
-          <div className="listings-container">
-            <h1>Search results:</h1>
-            <RideList rides={rides} onClick={displayRide} clearSearch={clearSearch}/>
-          </div>
-          :
-          <SearchRides onSubmit={searchRides} />
-      }
+      ) : rides.length > 0 ? (
+        <div className="listings-container">
+          <h1>Search results:</h1>
+          <RideList
+            rides={rides}
+            onClick={displayRide}
+            clearSearch={clearSearch}
+          />
+        </div>
+      ) : (
+        <SearchRides onSubmit={searchRides} />
+      )}
     </div>
   );
 }

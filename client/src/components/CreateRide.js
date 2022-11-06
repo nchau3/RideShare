@@ -26,7 +26,7 @@ export default function CreateRide(props) {
     departure_date_time: departure,
     number_of_seats: seats,
     cost_per_seat: cost,
-    description: ,
+    description: description,
     allow_pets: conditions.allow_pets,
     allow_oversize: conditions.allow_oversize,
     allow_skis: conditions.allow_skis,
@@ -40,7 +40,7 @@ export default function CreateRide(props) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          props.onSubmit(searchParams);
+          props.onSubmit(createParams);
         }}
       >
         <div className="location-input">
@@ -59,7 +59,7 @@ export default function CreateRide(props) {
             value={dropoff}
             onChange={(event) => setDropoff(event.target.value)}
           />
-           <input
+          <input
             type="text"
             id="seats"
             placeholder="Number of Seats"
@@ -67,13 +67,21 @@ export default function CreateRide(props) {
             value={seats}
             onChange={(event) => setSeats(event.target.value)}
           />
-           <input
+          <input
             type="text"
             id="cost"
             placeholder="Cost Per Seat"
             name="cost"
             value={cost}
             onChange={(event) => setCost(event.target.value)}
+          />
+          <input
+            type="text"
+            id="description"
+            placeholder="Description"
+            name="description"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
           />
         </div>
 
