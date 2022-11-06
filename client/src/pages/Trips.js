@@ -6,14 +6,19 @@ import TripList from "../components/Triplist";
 
 export default function Trips() {
   const [trips, setTrips] = useState([]);
+  const [refresh, setRefresh] = useState();
   const user_id = localStorage.getItem("user_id");
+
+  function toggle(value) {
+    return !value;
+  }
 
   useEffect(() => {
     axios.get(`/api/trips/${user_id}`)
     .then(response => {
       setTrips(response.data);
     })
-  }, [user_id]);
+  }, [user_id, refresh]);
 
   //placeholder for trip details dropdown
   function dropdown(id) {
@@ -38,6 +43,13 @@ export default function Trips() {
     })
   }
 
+  function cancelTrip(trip_id) {
+    axios.delete(`api/trips/${trip_id}`)
+    .then((response) => {
+      setRefresh(toggle);
+    })
+  }
+
   return (
     <div className="page-container">
         <div className="listings-container">
@@ -45,7 +57,7 @@ export default function Trips() {
           <button onClick={clickAll}>ALL</button>
           <button onClick={() => filterTrips(false)}>UPCOMING</button>
           <button onClick={() => filterTrips(true)}>COMPLETED</button>
-          <TripList trips={trips} onClick={dropdown}/>
+          <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip}/>
       {trips.length === 0 &&
         <h1>No trips yet!</h1>
       }

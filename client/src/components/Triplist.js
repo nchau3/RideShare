@@ -31,7 +31,7 @@ export default function TripList(props) {
         <div>UPCOMING</div>
         <div>CONFIRMATION #</div>
         <div>DRIVER DETAILS</div>
-        <button onclick={}> CANCEL TRIP </button>
+        <button onClick={() => props.cancelTrip(trip.id)}> CANCEL TRIP </button>
       </footer>
       </>
     );
