@@ -23,10 +23,7 @@ Rails.application.routes.draw do
 
     get 'drivers/:driver_id', to: 'drivers#show' 
     get 'driver/:driver_id', to: 'drivers#profile' 
-    
-
-
-
+    post 'drivers/:driver_id', to: 'drivers#create'
 
   end
 

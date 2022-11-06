@@ -62,4 +62,23 @@ class Api::DriversController < ApplicationController
   render @drivers
   end
 
+  def driver_params
+    params.permit(:car_make, :car_model, :licence_plate, :phone_number)
+   end
+
+  def create
+    driver = Driver.new(driver_params)
+    if driver.save
+      driver.generate_token
+      render :json => {
+        driver_id: driver.id,
+        status: 201
+      }
+    else
+      render :json => {
+        status: 401,
+        errors: ['Validation failed']
+      }
+    end
+  end
 end

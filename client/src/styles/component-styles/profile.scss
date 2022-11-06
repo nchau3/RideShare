@@ -1,0 +1,46 @@
+@import "../mixins.scss";
+
+.user-profile {
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    
+    .hidden {
+      display: none;
+    }
+    
+    li {
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      padding: .5em 0;
+      border-bottom: solid 1px rgb(221, 221, 221);
+      
+      img {
+        width: 175px;
+        height: 175px;
+        border-radius: 350px;
+        box-shadow: 2px 2px 3px rgb(78, 78, 78);
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      .credit-card {
+        font-size: .75em;
+        opacity: .8;
+      }
+
+    }
+  }
+
+  form {
+    font-size: .45em;
+  }
+}
