@@ -42,9 +42,9 @@ export default function Trips() {
     <div className="page-container">
         <div className="listings-container">
           <h1>My Trips</h1>
-          <button onClick={clickAll}>All</button>
-          <button onClick={() => filterTrips(false)}>Upcoming</button>
-          <button onClick={() => filterTrips(true)}>Completed</button>
+          <button onClick={clickAll}>ALL</button>
+          <button onClick={() => filterTrips(false)}>UPCOMING</button>
+          <button onClick={() => filterTrips(true)}>COMPLETED</button>
           <TripList trips={trips} onClick={dropdown}/>
       {trips.length === 0 &&
         <h1>No trips booked!</h1>
