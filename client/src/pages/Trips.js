@@ -9,6 +9,7 @@ import "../styles/component-styles/trip-container.scss";
 export default function Trips() {
   const [trips, setTrips] = useState([]);
   const [refresh, setRefresh] = useState();
+
   const user_id = localStorage.getItem("user_id");
 
   function toggle(value) {
@@ -54,8 +55,8 @@ export default function Trips() {
             <button onClick={() => filterTrips(true)}>COMPLETED</button>
           </div>
         </div>
-        {trips.length > 1 ?
-        <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip}/>
+        {trips.length > 0 ?
+        <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip} />
         :
         <NoResults message="Your booked rides will show up here." />
       }

@@ -4,10 +4,16 @@ import axios from "axios";
 import RideList from "../components/RideList";
 import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
+import useVisualMode from "../hooks/useVisualMode";
+import Success from "../components/confirmation/Success";
+
+const SUCCESS = "SUCCESS";
 
 export default function Rides() {
   const [ride, setRide] = useState();
   const [rides, setRides] = useState([]);
+  const { mode, transition, back } = useVisualMode("");
+
   const user_id = localStorage.getItem("user_id");
 
   function searchRides(searchParams) {
@@ -37,8 +43,8 @@ export default function Rides() {
 
   function bookTrip(ride_id, user_id) {
     axios.post(`api/trips/${ride_id}/${user_id}`).then((response) => {
-      if (response.status === 201) {
-        console.log("booked!");
+      if (response.status === 200) {
+        transition(SUCCESS);
       }
     });
   }
@@ -83,6 +89,9 @@ export default function Rides() {
           />
           <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
           <button id="go-back" onClick={() => goBackToRides()}>Go Back</button>
+          {mode === SUCCESS &&
+            <Success message="Trip booked successfully!" />
+          }
         </section>
       ) : rides.length > 0 ? (
         <div className="listings-container">
