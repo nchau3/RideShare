@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :api do # /api/data
+  namespace :api do
 
     resources :users, only: [:index]
     resources :rides, only: [:index, :search]
@@ -26,8 +26,5 @@ Rails.application.routes.draw do
     post 'drivers/:driver_id', to: 'drivers#create'
 
   end
-
- 
-  
 
 end
