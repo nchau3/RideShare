@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 
 export default function SearchRides(props) {
-  const [pickup, setPickup] = useState(undefined);
-  const [dropoff, setDropoff] = useState(undefined);
-  const [departure, setDeparture] = useState(undefined);
+  const [pickup, setPickup] = useState(null);
+  const [dropoff, setDropoff] = useState(null);
+  const [departure, setDeparture] = useState(null);
   const [conditions, setConditions] = useState({
-    allow_pets: undefined,
-    allow_oversize: undefined,
-    allow_skis: undefined,
-    allow_bikes: undefined
+    allow_pets: null,
+    allow_oversize: null,
+    allow_skis: null,
+    allow_bikes: null
   }
   );
 
   function toggle(value) {
+    console.log(conditions)
     if (value === null) {
-      return true
+      return true;
     }
+    return null;
   }
 
   const searchParams = {
