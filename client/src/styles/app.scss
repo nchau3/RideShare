@@ -20,8 +20,8 @@ main {
 .page-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-left: 330px;
+  height: fit-content;
   width: 100%;
   padding: 2em;
 }
