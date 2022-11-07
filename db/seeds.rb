@@ -13,7 +13,7 @@ puts "creating users..."
 User.destroy_all
 User.create(first_name: "Shaun", last_name: "Jiji", email: "shaun@shaun.com", password: "shaun")
 User.create(first_name: "Coreen", last_name: "Huang", email: "coreen@coreen.com", password: "coreen")
-User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas.com", password: "nicholas")
+User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas.com", password: "nicholas", avatar: "https://imgur.com/E2mngnI.jpg")
 
 avatar_counter = 0
 
@@ -137,7 +137,7 @@ ride_counter = 51
 5.times do
   trip = Trip.new(
     ride: Ride.find(ride_counter),
-    user: User.find(4),
+    user: User.find(3),
     is_new: false,
     is_completed: true
   )

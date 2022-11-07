@@ -47,11 +47,7 @@ export default function Profile() {
             <ul>
               <li>
                 <div></div>
-                {user_id === "3" ?
-                  <img src="https://imgur.com/E2mngnI.jpg" alt="user profile pic"/>
-                  :
-                  <img src={user.avatar} alt="user profile pic"/>
-                }
+                <img src={user.avatar} alt="user profile pic"/>
                 <div></div>
               </li>
               <li>
