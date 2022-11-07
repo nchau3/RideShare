@@ -18,7 +18,6 @@ export default function Profile() {
   }, [user_id]);
 
   function toggle(value) {
-    console.log(value);
     if (value === "hidden") {
       return "";
     }
