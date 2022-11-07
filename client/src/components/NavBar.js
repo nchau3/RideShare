@@ -8,7 +8,10 @@ export default function NavBar(props) {
   return (
     <nav>
       <h1 className="logo">
-        <NavLink to="/" className="nav-link">RIDESHARE</NavLink>
+        <NavLink to="/" className="nav-link center">
+          <div>RoundTrip</div>
+          <div className="logo-image"><i class="fa-solid fa-car-side"></i></div>
+        </NavLink>
       </h1>
       <ul>
         {!props.user ? 

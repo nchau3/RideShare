@@ -9,7 +9,7 @@ export default function Register(props) {
   return (
     <div className="page-container">
       <div className="form-container">
-        <h1>Register for Rideshare</h1>
+        <h1>Register for RoundTrip</h1>
         <form
           onSubmit={(event) => {
             event.preventDefault();

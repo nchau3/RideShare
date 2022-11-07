@@ -13,7 +13,7 @@ puts "creating users..."
 User.destroy_all
 User.create(first_name: "Shaun", last_name: "Jiji", email: "shaun@shaun.com", password: "shaun")
 User.create(first_name: "Coreen", last_name: "Huang", email: "coreen@coreen.com", password: "coreen")
-User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas.com", password: "nicholas", avatar: ActionController::Base.helpers.image_path('./NC-avatar'))
+User.create(first_name: "Nicholas", last_name: "Chau", email: "nicholas@nicholas.com", password: "nicholas")
 
 avatar_counter = 0
 

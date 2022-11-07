@@ -14,13 +14,24 @@ nav {
   background-color: variables.$primary-color;
   color: variables.$accent-color;
 
-  .logo {
+  h1 {
     width: fit-content;
+  }
+
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
     padding: .75em;
-    border: solid 1px;
-    border-radius: 1em;
-    margin-bottom: .5em;
     font-size: 2.5em;
+    font-family:'Raleway', sans-serif;
+
+    .logo-image {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: .25em;
+      font-size: 1.5em;
+    }
   }
   
   ul {
