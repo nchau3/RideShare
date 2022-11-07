@@ -58,7 +58,7 @@ export default function Profile() {
             <li>
               <div>Password:</div>
               <div>**********</div>
-              <button onClick={() => setDropdown(toggle)}>Change Password</button>
+              <button onClick={() => setDropdown(toggle)}>CHANGE PASSWORD</button>
             </li>
 
             <li className={dropdown}>
@@ -77,7 +77,7 @@ export default function Profile() {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">SUBMIT</button>
               </form>
               <div></div>
             </li>

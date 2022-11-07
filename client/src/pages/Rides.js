@@ -4,7 +4,6 @@ import axios from "axios";
 import RideList from "../components/RideList";
 import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
-import CreateRide from "../components/CreateRide";
 
 export default function Rides() {
   const [ride, setRide] = useState();
@@ -17,6 +16,7 @@ export default function Rides() {
     });
   }
 
+  //not implemented yet
   function createRide(params) {
     axios
       .post("/api/rides/:driver_id", { params: params })
@@ -82,7 +82,10 @@ export default function Rides() {
         </section>
       ) : rides.length > 0 ? (
         <div className="listings-container">
-          <h1>Search results:</h1>
+          <div className="page-header">
+            <h1>Search results:</h1>
+            <button onClick={() => clearSearch()}>SEARCH AGAIN</button>
+          </div>
           <RideList
             rides={rides}
             onClick={displayRide}

@@ -3,8 +3,6 @@ import React from "react";
 //Components
 import RideListItem from "./RideListItem";
 
-//import './styles/ride.scss';
-
 export default function RideList(props) {
 
   const searchResults = props.rides.map((ride) => {
@@ -31,12 +29,8 @@ export default function RideList(props) {
   });
 
   return (
-    <>
-      <button onClick={() => props.clearSearch()}>Search again</button>
-
-      <ul className="search-results">
+    <ul className="search-results">
         {searchResults}
-      </ul>
-    </>
+    </ul>
   );
 }

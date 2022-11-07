@@ -125,7 +125,7 @@ export default function SearchRides(props) {
 
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">SUBMIT</button>
       </form>
     </article>
   );

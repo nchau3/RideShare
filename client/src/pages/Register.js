@@ -50,7 +50,7 @@ export default function Register(props) {
 
           <input type="password" placeholder="Confirm Password" name="password_confirm" />
 
-          <button type="submit">Submit</button>
+          <button type="submit">SUBMIT</button>
         </form>
       </div>
     </div>
