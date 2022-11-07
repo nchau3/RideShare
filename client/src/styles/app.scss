@@ -18,6 +18,9 @@ main {
 }
 
 .page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 330px;
   width: 100%;
   padding: 2em;

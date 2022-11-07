@@ -11,6 +11,10 @@ export default function Rides() {
   const user_id = localStorage.getItem("user_id");
 
   function searchRides(searchParams) {
+    if (!searchParams.pickup) {
+      alert("Pickup location is a required field.")
+      return;
+    }
     axios.get("/api/rides/search", { params: searchParams }).then((response) => {
       setRides(response.data);
     });

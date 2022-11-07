@@ -65,16 +65,28 @@ export default function App() {
   }
 
   function loginCheck(email, password) {
+    if (!email) {
+      alert("Please enter valid email.")
+      return;
+    }
+    if (!password) {
+      alert("Please enter your password.")
+      return;
+    }
     onLogin(email, password).then((user) => {
       if (user) {
         setUser(user);
       } else {
-        setUser(null);
+        setUser(undefined);
       }
     });
   }
 
   function registerCheck(email, password, firstName, lastName) {
+    if (!email || !password || !firstName || !lastName) {
+      alert("Please fill in all fields to register.")
+      return;
+    }
     onRegister(email, password, firstName, lastName).then((user) => {
       setUser(user);
     });
@@ -83,7 +95,7 @@ export default function App() {
   function logoutUser() {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
-    setUser(null);
+    setUser("");
   }
 
   return (
