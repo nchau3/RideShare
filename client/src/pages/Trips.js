@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import TripList from "../components/Triplist";
-//import './styles/navbar.scss';
+import "../styles/component-styles/trip-container.scss";
 
 export default function Trips() {
   const [trips, setTrips] = useState([]);
@@ -21,22 +21,13 @@ export default function Trips() {
   }, [user_id, refresh]);
 
   //placeholder for trip details dropdown
-  function dropdown(id) {
+  function dropdown() {
     console.log("dropdown");
-  }
-
-  function clickAll() {
-    axios.get(`/api/trips/${user_id}`)
-    .then(response => {
-      setTrips(response.data);
-    })
   }
 
   function filterTrips(is_completed) {
     axios.get(`/api/trips/${user_id}`, {
-      params: {
-        is_completed: is_completed
-      }
+      params: { is_completed }
     })
     .then(response => {
       setTrips(response.data);
@@ -45,7 +36,7 @@ export default function Trips() {
 
   function cancelTrip(trip_id) {
     axios.delete(`api/trips/${trip_id}`)
-    .then((response) => {
+    .then(() => {
       setRefresh(toggle);
     })
   }
@@ -54,9 +45,11 @@ export default function Trips() {
     <div className="page-container">
         <div className="listings-container">
           <h1>My Trips</h1>
-          <button onClick={clickAll}>ALL</button>
-          <button onClick={() => filterTrips(false)}>UPCOMING</button>
-          <button onClick={() => filterTrips(true)}>COMPLETED</button>
+          <div className="filter-buttons">
+            <button onClick={() => setRefresh(toggle)}>ALL</button>
+            <button onClick={() => filterTrips(false)}>UPCOMING</button>
+            <button onClick={() => filterTrips(true)}>COMPLETED</button>
+          </div>
           <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip}/>
       {trips.length === 0 &&
         <h1>No trips yet!</h1>

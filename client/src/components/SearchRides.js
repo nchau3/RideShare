@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 export default function SearchRides(props) {
-  const [pickup, setPickup] = useState(null);
-  const [dropoff, setDropoff] = useState(null);
-  const [departure, setDeparture] = useState(null);
+  const [pickup, setPickup] = useState(undefined);
+  const [dropoff, setDropoff] = useState(undefined);
+  const [departure, setDeparture] = useState(undefined);
   const [conditions, setConditions] = useState({
-    allow_pets: null,
-    allow_oversize: null,
-    allow_skis: null,
-    allow_bikes: null
+    allow_pets: undefined,
+    allow_oversize: undefined,
+    allow_skis: undefined,
+    allow_bikes: undefined
   }
   );
 
@@ -56,7 +56,7 @@ export default function SearchRides(props) {
         />
       </div>
 
-        <label for="departure">DEPARTURE DATE</label>
+        <label>DEPARTURE DATE</label>
         <input
           type="date"
           placeholder="Departure Date"
@@ -67,7 +67,7 @@ export default function SearchRides(props) {
 
         <div className="checkbox-container">
           <div className="checkbox">
-            <label id="allow_pets"><div className="icon"><i class="fa-solid fa-dog"></i></div> Pets</label>
+            <label id="allow_pets"><div className="icon"><i className="fa-solid fa-dog"></i></div> Pets</label>
             <input 
               type="checkbox"
               id="allow_pets"
@@ -81,7 +81,7 @@ export default function SearchRides(props) {
           </div>
 
           <div className="checkbox">
-            <label id="allow_oversize"><div className="icon"><i class="fa-solid fa-suitcase"></i></div>Oversize</label>
+            <label id="allow_oversize"><div className="icon"><i className="fa-solid fa-suitcase"></i></div>Oversize</label>
             <input 
               type="checkbox"
               id="allow_oversize"
@@ -95,7 +95,7 @@ export default function SearchRides(props) {
           </div>
 
           <div className="checkbox">
-            <label id="allow_skis"><div className="icon"><i class="fa-solid fa-person-skiing"></i></div> Skis</label>
+            <label id="allow_skis"><div className="icon"><i className="fa-solid fa-person-skiing"></i></div> Skis</label>
             <input 
               type="checkbox"
               id="allow_skis"
@@ -109,7 +109,7 @@ export default function SearchRides(props) {
           </div>
 
           <div className="checkbox">
-          <label id="allow_bikes"><div className="icon"><i class="fa-solid fa-bicycle"></i></div> Bikes</label>
+          <label id="allow_bikes"><div className="icon"><i className="fa-solid fa-bicycle"></i></div> Bikes</label>
             <input 
               type="checkbox"
               id="allow_bikes"

@@ -7,9 +7,10 @@
 }
 
 nav {
+  position: fixed;
   padding: 1em;
   height: 100%;
-  width: fit-content;
+  width: 300px;
   background-color: variables.$primary-color;
   color: variables.$accent-color;
 

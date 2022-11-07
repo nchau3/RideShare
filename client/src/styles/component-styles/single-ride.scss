@@ -12,16 +12,19 @@ section {
   button {
     font-size: 1.5em;
   }
-
+  
   #go-back {
     margin-top: 2em;
     font-size: 1em;
   }
+
 }
+
 
 .single-ride {
   @include page-card;
   height: 400px;
+  max-width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
