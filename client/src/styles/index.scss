@@ -10,10 +10,12 @@ html {
 body {
   @include button-styling;
   background-image: url("../assets/background.jpg");
+  background-size: cover;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
 }
 
 #root {

@@ -13,7 +13,6 @@ export default function SearchRides(props) {
   );
 
   function toggle(value) {
-    console.log(conditions)
     if (value === null) {
       return true;
     }

@@ -4,11 +4,11 @@
 .nav-link {
   text-decoration: none;
   color: variables.$accent-color;
+  width: fit-content;
 }
 
 nav {
   position: fixed;
-  padding: 1em;
   height: 100%;
   width: 300px;
   background-color: variables.$primary-color;
@@ -30,7 +30,7 @@ nav {
       justify-content: center;
       width: 100%;
       margin-top: .25em;
-      font-size: 1.5em;
+      font-size: 1.25em;
     }
   }
   
@@ -49,21 +49,27 @@ nav {
     }
 
     .register-bar:hover {
-      opacity: 1;
+      background-color: variables.$primary-color;
     }
     
     li {
       padding: .5em .5em;
-      font-size: 1.5em;
+      font-size: 2em;
       list-style-type: none;
+      background-color: variables.$primary-color;
     }
     
     li:hover {
-      opacity: .7;
+      background-color: variables.$accent-color;
+      .nav-link {
+        color: variables.$primary-color;
+      }
     }
 
     .selected {
-      font-size: 1.5em;
+      .nav-link {
+        margin-right: auto;
+      }
     }
 
   }
