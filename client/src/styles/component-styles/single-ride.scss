@@ -12,12 +12,14 @@ section {
   button {
     font-size: 1.5em;
   }
-
+  
   #go-back {
     margin-top: 2em;
     font-size: 1em;
   }
+
 }
+
 
 .single-ride {
   @include page-card;

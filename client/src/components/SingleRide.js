@@ -25,30 +25,38 @@ export default function SingleRide(props) {
         <img src={props.car_image} className="car-pic" alt="driver's car"/>
         <h4>{props.car_make} {props.car_model}</h4>
         <div className="ride-conditions">
-          <div className="condition-item">
-            <div className="icon">
-              <i class="fa-solid fa-dog"></i>
+          {props.allow_pets &&
+            <div className="condition-item">
+              <div className="icon">
+                <i class="fa-solid fa-dog"></i>
+              </div>
+              Allows Pets
             </div>
-            Pets
-          </div>
-          <div className="condition-item">
-            <div className="icon">
-              <i class="fa-solid fa-suitcase"></i>
+          }
+          {props.allow_oversize &&
+            <div className="condition-item">
+              <div className="icon">
+                <i class="fa-solid fa-suitcase"></i>
+              </div>
+              <div>Space for Luggage</div>
             </div>
-            <div>Oversize</div>
-          </div>
-          <div className="condition-item">
-            <div className="icon">
-              <i class="fa-solid fa-person-skiing"></i> 
+          }
+          {props.allow_skis &&
+            <div className="condition-item">
+              <div className="icon">
+                <i class="fa-solid fa-person-skiing"></i> 
+              </div>
+              Room for Skis
             </div>
-            Skis
-          </div>
-          <div className="condition-item">
-            <div className="icon">
-              <i className="fa-solid fa-bicycle"></i>
+          }
+          {props.allow_bikes &&
+            <div className="condition-item">
+              <div className="icon">
+                <i className="fa-solid fa-bicycle"></i>
+              </div>
+              Room for Bikes
             </div>
-            Bikes
-          </div>
+          }
         </div>
       </div>
     </article>

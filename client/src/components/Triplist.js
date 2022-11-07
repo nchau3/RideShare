@@ -24,6 +24,10 @@ export default function TripList(props) {
           dropoff={trip.dropoff}
           departure={trip.departure_date_time}
           description={trip.description}
+          allow_pets={trip.allow_pets}
+          allow_oversize={trip.allow_oversize}
+          allow_skis={trip.allow_skis}
+          allow_bikes={trip.allow_bikes}
           onClick={props.onClick}
           cost={trip.cost_per_seat}
           rating={trip.rating}

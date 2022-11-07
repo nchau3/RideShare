@@ -64,6 +64,10 @@ export default function Rides() {
             pickup={ride.pickup}
             dropoff={ride.dropoff}
             departure={ride.departure_date_time}
+            allow_pets={ride.allow_pets}
+            allow_oversize={ride.allow_oversize}
+            allow_skis={ride.allow_skis}
+            allow_bikes={ride.allow_bikes}
             cost={ride.cost_per_seat}
             rating={ride.rating}
             trip_count={ride.trip_count}
@@ -74,7 +78,7 @@ export default function Rides() {
             remaining_seats={ride.remaining_seats}
           />
           <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
-          <button onClick={() => goBackToRides()}>Go Back</button>
+          <button id="go-back" onClick={() => goBackToRides()}>Go Back</button>
         </section>
       ) : rides.length > 0 ? (
         <div className="listings-container">
