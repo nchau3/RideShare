@@ -1,20 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-//import './styles/navbar.scss';
+import '../styles/component-styles/home.scss';
 
 export default function Home() {
   return (
-    
     <div className="page-container">
-      <h1> Welcome to RoundTrip</h1>
-      <h2> • Travel to your destination </h2>
-      <h2> • Connecting you to available rides </h2>
-      <h2> • Cashless payment method </h2>
-      <h2> • Environmentally-friendly </h2>
-      <button>
-        <NavLink to="/rides" className="nav-link" activeClassName="selected"> BOOK A TRIP NOW </NavLink>
-      </button>
+      <div className="page-header">
+        <h1> Welcome</h1>
+      </div>
+      <div className="form-center">
+        <div className="form-container welcome">
+          <ul>
+            <li> • Travel to your destination </li>
+            <li> • Connecting you to available rides </li>
+            <li> • Cashless payment method </li>
+            <li> • Environmentally-friendly </li>
+          </ul>
+          <Link to="/rides" className="nav-link">
+            <button>START HERE</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
