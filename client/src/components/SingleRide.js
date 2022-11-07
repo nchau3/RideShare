@@ -17,7 +17,7 @@ export default function SingleRide(props) {
         <div>
           <div>Pickup: {props.pickup}</div>
           <div>Dropoff: {props.dropoff}</div>
-          <div>2 seats left - ${props.cost} per seat</div>
+          <div className="seats-price">2 seats left - ${props.cost} per seat</div>
         </div>
         <p className="ride-description">{props.description}</p>
       </div>

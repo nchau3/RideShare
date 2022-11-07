@@ -8,11 +8,12 @@ import useVisualMode from "../hooks/useVisualMode";
 import Success from "../components/confirmation/Success";
 
 const SUCCESS = "SUCCESS";
+const HIDE = "HIDE";
 
 export default function Rides() {
   const [ride, setRide] = useState();
   const [rides, setRides] = useState([]);
-  const { mode, transition, back } = useVisualMode("");
+  const { mode, transition, back } = useVisualMode("HIDE");
 
   const user_id = localStorage.getItem("user_id");
 
@@ -51,6 +52,7 @@ export default function Rides() {
 
   function goBackToRides() {
     setRide(null);
+    transition(HIDE);
   }
 
   function clearSearch() {
@@ -60,39 +62,41 @@ export default function Rides() {
   return (
     <div className="page-container">
       {ride ? (
-        <section>
-          <SingleRide
-            key={ride.id}
-            id={ride.id}
-            user_id={user_id}
-            first_name={ride.first_name}
-            last_name={ride.last_name}
-            avatar={ride.avatar}
-            car_model={ride.car_model}
-            car_make={ride.car_make}
-            car_color={ride.car_color}
-            pickup={ride.pickup}
-            dropoff={ride.dropoff}
-            departure={ride.departure_date_time}
-            allow_pets={ride.allow_pets}
-            allow_oversize={ride.allow_oversize}
-            allow_skis={ride.allow_skis}
-            allow_bikes={ride.allow_bikes}
-            cost={ride.cost_per_seat}
-            rating={ride.rating}
-            trip_count={ride.trip_count}
-            description={ride.description}
-            onSubmit={bookTrip}
-            goBack={goBackToRides}
-            car_image={ride.car_image}
-            remaining_seats={ride.remaining_seats}
-          />
-          <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
-          <button id="go-back" onClick={() => goBackToRides()}>Go Back</button>
-          {mode === SUCCESS &&
-            <Success message="Trip booked successfully!" />
-          }
-        </section>
+        <div className="form-center">
+          <section>
+            <SingleRide
+              key={ride.id}
+              id={ride.id}
+              user_id={user_id}
+              first_name={ride.first_name}
+              last_name={ride.last_name}
+              avatar={ride.avatar}
+              car_model={ride.car_model}
+              car_make={ride.car_make}
+              car_color={ride.car_color}
+              pickup={ride.pickup}
+              dropoff={ride.dropoff}
+              departure={ride.departure_date_time}
+              allow_pets={ride.allow_pets}
+              allow_oversize={ride.allow_oversize}
+              allow_skis={ride.allow_skis}
+              allow_bikes={ride.allow_bikes}
+              cost={ride.cost_per_seat}
+              rating={ride.rating}
+              trip_count={ride.trip_count}
+              description={ride.description}
+              onSubmit={bookTrip}
+              goBack={goBackToRides}
+              car_image={ride.car_image}
+              remaining_seats={ride.remaining_seats}
+            />
+            <button onClick={() => bookTrip(ride.id, user_id)}>Book Trip</button>
+            <button id="go-back" onClick={() => goBackToRides()}>Go Back</button>
+            {mode === SUCCESS &&
+              <Success message="Trip booked successfully!" />
+            }
+          </section>
+        </div>
       ) : rides.length > 0 ? (
         <div className="listings-container">
           <div className="page-header">
