@@ -98,7 +98,14 @@ export default function Rides() {
           />
         </div>
       ) : (
-        <SearchRides onSubmit={searchRides} />
+        <>
+          <div className="page-header">
+            <h1>Search Rides</h1>
+          </div>
+          <div className="form-center">
+            <SearchRides onSubmit={searchRides} />
+          </div>
+        </>
       )}
     </div>
   );

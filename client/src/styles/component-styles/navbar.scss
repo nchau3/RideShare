@@ -1,6 +1,15 @@
 @use '../variables.scss';
 @import "../mixins.scss";
 
+@keyframes wiggle {
+  25% {
+    transform: rotateZ(-5deg)
+  }
+  75% {
+    transform: rotateZ(5deg)
+  }
+}
+
 .nav-link {
   text-decoration: none;
   color: variables.$accent-color;
@@ -30,7 +39,15 @@ nav {
       justify-content: center;
       width: 100%;
       margin-top: .25em;
-      font-size: 1.25em;
+      font-size: 1.5em;
+    }
+
+    .logo-image:hover {
+      animation-name: wiggle;
+      animation-duration: .35s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
     }
   }
   
@@ -67,7 +84,7 @@ nav {
     }
 
     .selected {
-      font-size: 1.5em;
+      font-size: 1.35em;
       position: relative;
       left: .5em;
     }
