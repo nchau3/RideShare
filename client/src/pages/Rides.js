@@ -4,6 +4,7 @@ import axios from "axios";
 import RideList from "../components/RideList";
 import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
+import NoResults from "../components/NoResults";
 
 export default function Rides() {
   const [ride, setRide] = useState();

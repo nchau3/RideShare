@@ -20,10 +20,30 @@ main {
 .page-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-left: 330px;
   height: fit-content;
   width: 100%;
+  padding: 3rem;
+}
+
+.page-header {
+  @include page-card;
+  background-color: variables.$primary-color;
+  color: variables.$accent-color;
   padding: 2em;
+  max-width: 550px;
+
+  h1 {
+    font-size: 3rem;
+    margin: .25em auto;
+  }
+
+  button {
+    font-size: 1.25rem;
+    background-color: variables.$accent-color;
+    color: variables.$primary-color;
+  }
 }
 
 .hidden {
