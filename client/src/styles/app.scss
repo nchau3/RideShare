@@ -19,8 +19,35 @@ main {
 
 .page-container {
   margin-left: 330px;
+  height: fit-content;
   width: 100%;
+  padding: 3rem;
+}
+
+.form-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-header {
+  @include page-card;
+  background-color: variables.$primary-color;
+  color: variables.$accent-color;
   padding: 2em;
+  max-width: 550px;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 3rem;
+    margin: .25em auto;
+  }
+
+  button {
+    font-size: 1.25rem;
+    background-color: variables.$accent-color;
+    color: variables.$primary-color;
+  }
 }
 
 .hidden {

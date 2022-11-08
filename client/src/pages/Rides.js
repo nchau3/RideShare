@@ -4,7 +4,6 @@ import axios from "axios";
 import RideList from "../components/RideList";
 import SearchRides from "../components/SearchRides";
 import SingleRide from "../components/SingleRide";
-import CreateRide from "../components/CreateRide";
 
 export default function Rides() {
   const [ride, setRide] = useState();
@@ -12,11 +11,16 @@ export default function Rides() {
   const user_id = localStorage.getItem("user_id");
 
   function searchRides(searchParams) {
+    if (!searchParams.pickup) {
+      alert("Pickup location is a required field.")
+      return;
+    }
     axios.get("/api/rides/search", { params: searchParams }).then((response) => {
       setRides(response.data);
     });
   }
 
+  //not implemented yet
   function createRide(params) {
     axios
       .post("/api/rides/:driver_id", { params: params })
@@ -82,7 +86,10 @@ export default function Rides() {
         </section>
       ) : rides.length > 0 ? (
         <div className="listings-container">
-          <h1>Search results:</h1>
+          <div className="page-header">
+            <h1>Search results:</h1>
+            <button onClick={() => clearSearch()}>SEARCH AGAIN</button>
+          </div>
           <RideList
             rides={rides}
             onClick={displayRide}
@@ -90,7 +97,14 @@ export default function Rides() {
           />
         </div>
       ) : (
-        <SearchRides onSubmit={searchRides} />
+        <>
+          <div className="page-header">
+            <h1>Search Rides</h1>
+          </div>
+          <div className="form-center">
+            <SearchRides onSubmit={searchRides} />
+          </div>
+        </>
       )}
     </div>
   );

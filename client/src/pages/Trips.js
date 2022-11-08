@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import TripList from "../components/Triplist";
+import NoResults from "../components/NoResults";
+
 import "../styles/component-styles/trip-container.scss";
 
 export default function Trips() {
@@ -43,16 +45,19 @@ export default function Trips() {
 
   return (
     <div className="page-container">
-        <div className="listings-container">
+      <div className="listings-container">
+        <div className="page-header">
           <h1>My Trips</h1>
-          <div className="filter-buttons">
+          <div>
             <button onClick={() => setRefresh(toggle)}>ALL</button>
             <button onClick={() => filterTrips(false)}>UPCOMING</button>
             <button onClick={() => filterTrips(true)}>COMPLETED</button>
           </div>
-          <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip}/>
-      {trips.length === 0 &&
-        <h1>No trips yet!</h1>
+        </div>
+        {trips.length > 1 ?
+        <TripList trips={trips} onClick={dropdown} cancelTrip={cancelTrip}/>
+        :
+        <NoResults message="Your booked rides will show up here." />
       }
       </div>
     </div>

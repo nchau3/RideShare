@@ -38,7 +38,6 @@ export default function RideListItem(props) {
         </div>
         <div className="car-info">
           <div>{props.car_make} {props.car_model}</div>
-          <div>{props.car_color}</div>
         </div>
       </footer>
     </article>
