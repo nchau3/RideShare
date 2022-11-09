@@ -51,10 +51,10 @@ export default function TripDetails(props) {
         <div className="contact-info">
           <div>DRIVER CONTACT INFO</div>
           <div>
-            <p>{props.first_name} {props.last_name}</p>
-            <p>{props.car_make} {props.car_model}</p>
-            <p>{props.licence_plate}</p>
-            <p>{props.phone_number}</p>
+            <p><i class="fa-solid fa-user"></i> {props.first_name} {props.last_name}</p>
+            <p><i class="fa-solid fa-car"></i> {props.car_make} {props.car_model}</p>
+            <p><i class="fa-solid fa-id-card"></i> {props.licence_plate}</p>
+            <p><i class="fa-solid fa-phone"></i> {props.phone_number}</p>
           </div>
         </div>
       </article>

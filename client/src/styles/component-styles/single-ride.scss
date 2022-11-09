@@ -62,6 +62,7 @@ section {
 
     .ride-description {
       @include page-card;
+      background-color: variables.$fields-color;
       border-radius: 5px;
       min-height: 100px;
       padding: .4em;
@@ -86,6 +87,7 @@ section {
     .ride-conditions {
       margin-right: auto;
       width: 100%;
+      margin-top: .5em;
 
       .condition-item {
         display: flex;

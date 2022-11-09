@@ -1,3 +1,4 @@
+@use "../variables.scss";
 @import "../mixins.scss";
 
 .ride-container {
@@ -22,12 +23,22 @@
     }
     
     .price {
-      font-size: 2em;
+      font-size: 2.5em;
     }
   }
     
   footer {
     display: flex;
     justify-content: space-between;
+    padding-top: .5em;
+    border-top: solid 1px variables.$primary-color;
   }
+}
+
+.ride-container:hover {
+  transform: translateY(-2px);
+}
+
+.ride-container:active {
+  transform: translateY(0);
 }
