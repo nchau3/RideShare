@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Register(props) {
   const [firstName, setFirstName] = useState("");
@@ -56,6 +57,7 @@ export default function Register(props) {
 
             <button type="submit">SUBMIT</button>
           </form>
+          <footer>Already signed up? Click <Link to="/login">here</Link> to login.</footer>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import './styles/navbar.scss';
+import { Link } from "react-router-dom";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -37,6 +37,7 @@ export default function Login(props) {
 
             <button type="submit">SUBMIT</button>
           </form>
+          <footer>New to RoundTrip? Click <Link to="/register">here</Link> to sign up.</footer>
         </div>
       </div>
     </div>

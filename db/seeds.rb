@@ -70,7 +70,7 @@ puts "creating rides..."
 cities = ["Montréal", "Toronto", "London", "Markham", "Kingston", "Windsor", "Vancouver", "Kelowna", "North Dumfries", "Ottawa", "Newmarket", "Stouffville", "New York City"]
 
 
-50.times do
+100.times do
   random_cities = cities.shuffle
 
   ride = Ride.new(
@@ -132,7 +132,7 @@ end
 
 puts "creating trips..."
 
-ride_counter = 51
+ride_counter = 101
 
 5.times do
   trip = Trip.new(
