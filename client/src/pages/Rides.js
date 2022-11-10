@@ -13,7 +13,7 @@ const HIDE = "HIDE";
 export default function Rides() {
   const [ride, setRide] = useState();
   const [rides, setRides] = useState([]);
-  const { mode, transition, back } = useVisualMode("HIDE");
+  const { mode, transition } = useVisualMode("HIDE");
 
   const user_id = localStorage.getItem("user_id");
 
@@ -27,12 +27,12 @@ export default function Rides() {
     });
   }
 
-  //not implemented yet
-  function createRide(params) {
+  //for driver account, future implementation
+/*   function createRide(params) {
     axios
       .post("/api/rides/:driver_id", { params: params })
       .then((response) => {});
-  }
+  } */
 
   function displayRide(ride_id) {
     axios.get(`api/rides/${ride_id}`).then((response) => {
