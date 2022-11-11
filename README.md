@@ -14,33 +14,37 @@ Future features will include:
 
 ## Screenshots
 
-!["Home Page"]()
+!["Home Page"](https://github.com/nchau3/RoundTrip/blob/master/docs/Home.png)
 
 Home Page
 
-!["Search Rides"]()
+!["Login"](https://github.com/nchau3/RoundTrip/blob/master/docs/Login.png)
+
+Login Page
+
+!["Search Rides"](https://github.com/nchau3/RoundTrip/blob/master/docs/Search-Rides.png)
 
 Filter rides by location, departure date and driver preferences
 
-!["Search Results"]()
+!["Search Results"](https://github.com/nchau3/RoundTrip/blob/master/docs/Search-Results.png)
 
 Search Results
 
-!["Book Trip"]()
+!["Book Trip"](https://github.com/nchau3/RoundTrip/blob/master/docs/Book-Trip.png)
 
 View ride details (description, price, seats available, driver preferences)
 
-!["Profile Page"]()
+!["Profile Page"](https://github.com/nchau3/RoundTrip/blob/master/docs/My-Profile.png)
 
 Profile page
 
-!["My Trips"]()
+!["My Trips"](https://github.com/nchau3/RoundTrip/blob/master/docs/My-Trips.png)
 
 View upcoming and completed trips
 
-!["Driver Details"]()
+!["Driver Details"](https://github.com/nchau3/RoundTrip/blob/master/docs/Driver-Details.png)
 
-View driver contact info for booked trips
+View driver contact info after booking
 
 ## Dependencies
 - Ruby v 3.1.1
