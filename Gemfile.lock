@@ -69,8 +69,6 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     bcrypt (3.1.18)
-    bootsnap (1.14.0)
-      msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.10)
@@ -93,7 +91,6 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
-    msgpack (1.6.0)
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
@@ -166,7 +163,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootsnap (>= 1.4.4)
   byebug
   faker!
   listen (~> 3.3)
